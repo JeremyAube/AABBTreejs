@@ -3,19 +3,23 @@ import AABBNode from './AABBNode';
 import IAABBShape from './IAABBShape';
 
 export default class AABBTree {
-  private rootNode?: AABBNode;
-  private shapeToNodeMap: Map<IAABBShape, AABBNode>;
+  private rootNode?: AABBNode; // The node at the top of the tree
+  private shapeToNodeMap: Map<IAABBShape, AABBNode>; // The map of all the shapes with their associated node
 
   constructor() {
     this.shapeToNodeMap = new Map<IAABBShape, AABBNode>();
   }
 
+  /**
+   * Add a new shape to the tree
+   */
   public AddShape(shape: IAABBShape): void {
     const shapeAABB = shape.GetAABB();
 
     // If there is no item in the tree we create the root node
     if (this.rootNode === undefined) {
       this.rootNode = new AABBNode(shapeAABB, shape, undefined, undefined, undefined);
+      this.shapeToNodeMap.set(shape, this.rootNode);
       return;
     }
 
@@ -54,10 +58,48 @@ export default class AABBTree {
     nextNode.Aabb = this.rootNode.IsLeaf ? this.rootNode.Aabb.Merge(shapeAABB) : newAabb;
     nextNode.Shape = undefined;
 
+    this.shapeToNodeMap.set(shape, newChild);
     return;
   }
 
-  public RemoveNode(node: AABBNode): void {
+  /**
+   * Remove the shape from the tree
+   */
+  public RemoveShape(shape: IAABBShape): void {
+    if (!this.shapeToNodeMap.has(shape)) {
+      return;
+    }
+    const node = this.shapeToNodeMap.get(shape) as AABBNode;
+
+    this.removeNode(node);
+    this.shapeToNodeMap.delete(shape);
+  }
+
+  /**
+   * Update the AABB of the given shape. if the shape doesn't exit or it didn't move it won't do anything
+   */
+  public UpdateShape(shape: IAABBShape): void {
+    const node = this.shapeToNodeMap.get(shape);
+
+    if (node === undefined || node.Aabb.Contains(shape.GetAABB())) {
+      return;
+    }
+
+    this.removeNode(node);
+    this.AddShape(shape);
+  }
+
+  /**
+   * Return all shapes with their AAB overlapping with this AABB
+   */
+  public GetOverlaps(aabb: AABB): void {
+    throw new Error('AABBTree.GetOverlaps is not implemented');
+  }
+
+  /**
+   * Remove the node from the tree
+   */
+  private removeNode(node: AABBNode) {
     if (node.ParentNode === undefined) {
       this.rootNode = undefined;
       return;
@@ -71,11 +113,5 @@ export default class AABBTree {
     parentNode.Shape = sibling.Shape;
     parentNode.LeftNode = undefined;
     parentNode.RightNode = undefined;
-  }
-
-  public UpdateShape(node: AABBNode): void {}
-
-  public GetOverlaps(aabb: AABB): void {
-    throw new Error('AABBTree.GetOverlaps is not implemented');
   }
 }
