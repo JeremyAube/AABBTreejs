@@ -1,0 +1,41 @@
+{
+  "name": "AABB-Tree",
+  "version": "0.0.1",
+  "description": "Implementation of the AABB-Tree (Axis Aligned Box Bounding Tree) in typescript",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeremyAube/AABBTreejs.git"
+  },
+  "keywords": [
+    "AABBTree",
+    "Graphics",
+    "Math",
+    "Geometry",
+    "Binary Tree"
+  ],
+  "author": "Jérémy Aubé",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JeremyAube/shape3d/issues"
+  },
+  "homepage": "https://github.com/JeremyAube/shape3d#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "jest": "^24.5.0",
+    "prettier": "^1.16.4",
+    "ts-node": "^8.0.3",
+    "tslint": "^5.13.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.3.3333"
+  },
+  "files": [
+    "lib/**/*"
+  ]
+}
