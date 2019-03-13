@@ -90,7 +90,7 @@ export default class AABBTree {
   }
 
   /**
-   * Return all shapes with their AAB overlapping with this AABB
+   * Return all shapes with their AABB overlapping with this AABB
    */
   public GetOverlaps(aabb: AABB): void {
     throw new Error('AABBTree.GetOverlaps is not implemented');
@@ -108,7 +108,7 @@ export default class AABBTree {
     const parentNode = node.ParentNode;
     const sibling = (parentNode.LeftNode === node ? parentNode.RightNode : parentNode.LeftNode) as AABBNode;
 
-    // Move the sibling up a level and remove references
+    // Move the sibling up a level and clean references
     parentNode.Aabb = sibling.Aabb;
     parentNode.Shape = sibling.Shape;
     parentNode.LeftNode = undefined;
