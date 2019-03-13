@@ -68,4 +68,7 @@ export default class AABB {
   public get Depth(): number {
     return this.MaxZ - this.MinZ;
   }
+  public get Volume(): number {
+    return this.Width * this.Height * this.Depth;
+  }
 }
