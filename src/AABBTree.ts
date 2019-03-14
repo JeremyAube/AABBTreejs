@@ -116,20 +116,6 @@ export default class AABBTree {
   }
 
   /**
-   * Update the AABB of the given shape. if the shape doesn't exit or it didn't move it won't do anything
-   */
-  public UpdateShape(shape: IAABBShape): void {
-    const node = this.shapeToNodeMap.get(shape);
-
-    if (node === undefined || node.Aabb.Contains(shape.GetAABB())) {
-      return;
-    }
-
-    this.removeNode(node);
-    this.AddShape(shape);
-  }
-
-  /**
    * Return all shapes with their AABB overlapping with this AABB
    */
   public GetOverlaps(aabb: AABB): void {
@@ -181,6 +167,14 @@ export default class AABBTree {
     parentNode.Shape = sibling.Shape;
     parentNode.LeftNode = sibling.LeftNode;
     parentNode.RightNode = sibling.RightNode;
+
+    // change the reference to the children to point the their new parent
+    if (!sibling.IsLeaf) {
+      let left = sibling.LeftNode as AABBNode;
+      let right = sibling.RightNode as AABBNode;
+      left.ParentNode = parentNode;
+      right.ParentNode = parentNode;
+    }
 
     if (this.shapeToNodeMap.has(parentNode.Shape as IAABBShape)) {
       this.shapeToNodeMap.set(parentNode.Shape as IAABBShape, parentNode);
