@@ -35,8 +35,6 @@ tree.GetAllNodes().forEach(node => {
   }
 });
 
-// console.log(tree.rootNode);
-
 function AddCubeOutline(aabb: AABB) {
   const geom = new THREE.BoxBufferGeometry(aabb.Width, aabb.Height, aabb.Depth);
   const edges = new THREE.EdgesGeometry(geom);
