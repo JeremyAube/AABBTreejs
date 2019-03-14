@@ -110,7 +110,6 @@ export default class AABBTree {
     }
     const node = this.shapeToNodeMap.get(shape) as AABBNode;
 
-    console.log('before Remove', node);
     this.removeNode(node);
     this.shapeToNodeMap.delete(shape);
   }
