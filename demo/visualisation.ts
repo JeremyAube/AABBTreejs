@@ -26,9 +26,6 @@ tree.AddShape(Shape2);
 tree.AddShape(Shape3);
 tree.AddShape(Shape4);
 tree.AddShape(Shape5);
-tree.RemoveShape(Shape3);
-tree.RemoveShape(Shape4);
-console.log(tree.GetAllShapeNodes());
 
 tree.GetAllNodes().forEach(node => {
   if (node.Shape === undefined) {

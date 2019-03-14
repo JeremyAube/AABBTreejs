@@ -122,17 +122,8 @@ export default class AABBTree {
     throw new Error('AABBTree.GetOverlaps is not implemented');
   }
 
-  public GetAllShapeNodes(): AABBNode[] {
-    let nodes: AABBNode[] = [];
-    this.shapeToNodeMap.forEach((value, key) => {
-      nodes.push(value);
-    });
-
-    return nodes;
-  }
-
   public GetAllNodes(): AABBNode[] {
-    let nodes: AABBNode[] = [];
+    const nodes: AABBNode[] = [];
 
     if (this.rootNode !== undefined) {
       this.nodeIterator(this.rootNode, nodes);
@@ -170,8 +161,8 @@ export default class AABBTree {
 
     // change the reference to the children to point the their new parent
     if (!sibling.IsLeaf) {
-      let left = sibling.LeftNode as AABBNode;
-      let right = sibling.RightNode as AABBNode;
+      const left = sibling.LeftNode as AABBNode;
+      const right = sibling.RightNode as AABBNode;
       left.ParentNode = parentNode;
       right.ParentNode = parentNode;
     }
