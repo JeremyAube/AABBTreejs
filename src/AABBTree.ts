@@ -3,7 +3,7 @@ import AABBNode from './AABBNode';
 import IAABBShape from './IAABBShape';
 
 export default class AABBTree {
-  private rootNode?: AABBNode; // The node at the top of the tree
+  public rootNode?: AABBNode; // The node at the top of the tree
   private shapeToNodeMap: Map<IAABBShape, AABBNode>; // The map of all the shapes with their associated node
 
   constructor() {
@@ -31,15 +31,44 @@ export default class AABBTree {
       const rightNode = currentNode.RightNode as AABBNode;
 
       const newNodeAabb = currentNode.Aabb.Merge(shapeAABB);
-      const shapeIsBiggerThanNode = newNodeAabb.Volume !== currentNode.Aabb.Volume;
-      if (shapeIsBiggerThanNode) {
-        break;
+      const newLeftAabb = leftNode.Aabb.Merge(shapeAABB);
+      const newRightAabb = rightNode.Aabb.Merge(shapeAABB);
+
+      const volumeDifference = newNodeAabb.Volume - currentNode.Aabb.Volume;
+      if (volumeDifference > 0) {
+        let leftCost;
+        let rightCost;
+
+        if (leftNode.IsLeaf) {
+          leftCost = newLeftAabb.Volume + volumeDifference;
+        } else {
+          leftCost = newLeftAabb.Volume - leftNode.Aabb.Volume + volumeDifference;
+        }
+
+        if (rightNode.IsLeaf) {
+          rightCost = newRightAabb.Volume + volumeDifference;
+        } else {
+          rightCost = newRightAabb.Volume - rightNode.Aabb.Volume + volumeDifference;
+        }
+
+        // For some reason 1.3 is a good bias to introduce. Might need to understand that some day...
+        if (newNodeAabb.Volume < leftCost * 1.3 && newNodeAabb.Volume < rightCost * 1.3) {
+          break;
+        }
+
+        currentNode.Aabb = newNodeAabb;
+        if (leftCost > rightCost) {
+          currentNode = rightNode;
+          newAabb = newRightAabb;
+        } else {
+          currentNode = leftNode;
+          newAabb = newLeftAabb;
+        }
+        continue;
       }
       // Set the new AABB right away so we don't have to traverse the tree backwards after insert
       currentNode.Aabb = newNodeAabb;
 
-      const newLeftAabb = leftNode.Aabb.Merge(shapeAABB);
-      const newRightAabb = rightNode.Aabb.Merge(shapeAABB);
       const leftVolumeIncrease = newLeftAabb.Volume - leftNode.Aabb.Volume;
       const rightVolumeIncrease = newRightAabb.Volume - rightNode.Aabb.Volume;
       if (leftVolumeIncrease > rightVolumeIncrease) {
@@ -51,10 +80,16 @@ export default class AABBTree {
       }
     }
 
-    const newChild = new AABBNode(currentNode.Aabb, currentNode.Shape, currentNode, undefined, undefined);
-    if (currentNode.Shape !== undefined) {
+    const newChild = new AABBNode(
+      currentNode.Aabb,
+      currentNode.Shape,
+      currentNode,
+      currentNode.RightNode,
+      currentNode.LeftNode
+    );
+    if (newChild.Shape !== undefined) {
       // Update the new shape to the new shape
-      this.shapeToNodeMap.set(currentNode.Shape, newChild);
+      this.shapeToNodeMap.set(newChild.Shape, newChild);
     }
     currentNode.LeftNode = newChild;
     currentNode.RightNode = new AABBNode(shapeAABB, shape, currentNode, undefined, undefined);
@@ -75,6 +110,7 @@ export default class AABBTree {
     }
     const node = this.shapeToNodeMap.get(shape) as AABBNode;
 
+    console.log('before Remove', node);
     this.removeNode(node);
     this.shapeToNodeMap.delete(shape);
   }
@@ -100,7 +136,7 @@ export default class AABBTree {
     throw new Error('AABBTree.GetOverlaps is not implemented');
   }
 
-  public GetAllNodes(): AABBNode[] {
+  public GetAllShapeNodes(): AABBNode[] {
     let nodes: AABBNode[] = [];
     this.shapeToNodeMap.forEach((value, key) => {
       nodes.push(value);
@@ -109,10 +145,29 @@ export default class AABBTree {
     return nodes;
   }
 
+  public GetAllNodes(): AABBNode[] {
+    let nodes: AABBNode[] = [];
+
+    if (this.rootNode !== undefined) {
+      this.nodeIterator(this.rootNode, nodes);
+    }
+
+    return nodes;
+  }
+
+  private nodeIterator(node: AABBNode, array: AABBNode[]) {
+    array.push(node);
+    if (!node.IsLeaf) {
+      this.nodeIterator(node.RightNode as AABBNode, array);
+      this.nodeIterator(node.LeftNode as AABBNode, array);
+    }
+  }
+
   /**
    * Remove the node from the tree
    */
   private removeNode(node: AABBNode) {
+    // if this is the root node we delete everything
     if (node.ParentNode === undefined) {
       this.rootNode = undefined;
       return;
@@ -124,7 +179,18 @@ export default class AABBTree {
     // Move the sibling up a level and clean references
     parentNode.Aabb = sibling.Aabb;
     parentNode.Shape = sibling.Shape;
-    parentNode.LeftNode = undefined;
-    parentNode.RightNode = undefined;
+    parentNode.LeftNode = sibling.LeftNode;
+    parentNode.RightNode = sibling.RightNode;
+
+    if (this.shapeToNodeMap.has(parentNode.Shape as IAABBShape)) {
+      this.shapeToNodeMap.set(parentNode.Shape as IAABBShape, parentNode);
+    }
+
+    // Fix tree upwards
+    let currentNode = parentNode.ParentNode;
+    while (currentNode !== undefined) {
+      currentNode.Aabb = (currentNode.LeftNode as AABBNode).Aabb.Merge((currentNode.RightNode as AABBNode).Aabb);
+      currentNode = currentNode.ParentNode;
+    }
   }
 }

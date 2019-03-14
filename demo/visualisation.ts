@@ -20,19 +20,25 @@ const Shape1 = new Shape(-2, -2, -2, -1, -1, -1);
 const Shape2 = new Shape(-1, -1, -1, 0, 0, 0);
 const Shape3 = new Shape(0, 0, 0, 1, 1, 1);
 const Shape4 = new Shape(1, 1, 1, 2, 2, 2);
+const Shape5 = new Shape(1, 1, -2, 2, 2, -1);
 tree.AddShape(Shape1);
-tree.AddShape(Shape2);
 tree.AddShape(Shape3);
+tree.AddShape(Shape2);
 tree.AddShape(Shape4);
+tree.AddShape(Shape5);
+tree.RemoveShape(Shape3);
+tree.RemoveShape(Shape4);
+console.log(tree.GetAllShapeNodes());
 
 tree.GetAllNodes().forEach(node => {
-  console.log(node);
   if (node.Shape === undefined) {
     AddCubeOutline(node.Aabb);
   } else {
     AddCube(node.Aabb);
   }
 });
+
+// console.log(tree.rootNode);
 
 function AddCubeOutline(aabb: AABB) {
   const geom = new THREE.BoxBufferGeometry(aabb.Width, aabb.Height, aabb.Depth);
