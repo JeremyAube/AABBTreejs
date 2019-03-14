@@ -3,7 +3,7 @@ import AABBNode from './AABBNode';
 import IAABBShape from './IAABBShape';
 
 export default class AABBTree {
-  public rootNode?: AABBNode; // The node at the top of the tree
+  private rootNode?: AABBNode; // The node at the top of the tree
   private shapeToNodeMap: Map<IAABBShape, AABBNode>; // The map of all the shapes with their associated node
 
   constructor() {
@@ -117,8 +117,33 @@ export default class AABBTree {
   /**
    * Return all shapes with their AABB overlapping with this AABB
    */
-  public GetOverlaps(aabb: AABB): void {
-    throw new Error('AABBTree.GetOverlaps is not implemented');
+  public GetOverlaps(aabb: AABB): AABBNode[] {
+    if (this.rootNode === undefined) {
+      return [];
+    }
+
+    const collidingNodes: AABBNode[] = [];
+    const nodesToCheck: AABBNode[] = [this.rootNode as AABBNode];
+    let index = 0;
+
+    while (nodesToCheck.length > index) {
+      const leftNode = (nodesToCheck[index] as AABBNode).LeftNode as AABBNode;
+      const rightNode = (nodesToCheck[index] as AABBNode).RightNode as AABBNode;
+
+      const collidingLeft = leftNode.Aabb.Overlaps(aabb);
+      const collidingRight = rightNode.Aabb.Overlaps(aabb);
+
+      if (collidingLeft) {
+        leftNode.IsLeaf ? collidingNodes.push(leftNode) : nodesToCheck.push(leftNode);
+      }
+      if (collidingRight) {
+        rightNode.IsLeaf ? collidingNodes.push(rightNode) : nodesToCheck.push(rightNode);
+      }
+
+      index++;
+    }
+
+    return collidingNodes;
   }
 
   public GetAllNodes(): AABBNode[] {
