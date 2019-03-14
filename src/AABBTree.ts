@@ -23,42 +23,46 @@ export default class AABBTree {
       return;
     }
 
-    let nextNode = this.rootNode;
+    let currentNode = this.rootNode;
     let newAabb = this.rootNode.Aabb;
-    while (!nextNode.IsLeaf) {
+    while (!currentNode.IsLeaf) {
       // We have to do this so that typescript doesn't yell at us
-      const leftNode = nextNode.LeftNode as AABBNode;
-      const rightNode = nextNode.RightNode as AABBNode;
+      const leftNode = currentNode.LeftNode as AABBNode;
+      const rightNode = currentNode.RightNode as AABBNode;
 
-      const newNodeAabb = nextNode.Aabb.Merge(shapeAABB);
-      const shapeIsBiggerThanNode = newNodeAabb.Volume === nextNode.Aabb.Volume;
+      const newNodeAabb = currentNode.Aabb.Merge(shapeAABB);
+      const shapeIsBiggerThanNode = newNodeAabb.Volume !== currentNode.Aabb.Volume;
       if (shapeIsBiggerThanNode) {
         break;
       }
       // Set the new AABB right away so we don't have to traverse the tree backwards after insert
-      nextNode.Aabb = newNodeAabb;
+      currentNode.Aabb = newNodeAabb;
 
       const newLeftAabb = leftNode.Aabb.Merge(shapeAABB);
       const newRightAabb = rightNode.Aabb.Merge(shapeAABB);
       const leftVolumeIncrease = newLeftAabb.Volume - leftNode.Aabb.Volume;
       const rightVolumeIncrease = newRightAabb.Volume - rightNode.Aabb.Volume;
       if (leftVolumeIncrease > rightVolumeIncrease) {
-        nextNode = rightNode;
+        currentNode = rightNode;
         newAabb = newRightAabb;
       } else {
-        nextNode = leftNode;
+        currentNode = leftNode;
         newAabb = newLeftAabb;
       }
     }
 
-    const newChild = new AABBNode(nextNode.Aabb, nextNode.Shape, nextNode, undefined, undefined);
-    nextNode.LeftNode = newChild;
-    nextNode.RightNode = new AABBNode(shapeAABB, shape, nextNode, undefined, undefined);
+    const newChild = new AABBNode(currentNode.Aabb, currentNode.Shape, currentNode, undefined, undefined);
+    if (currentNode.Shape !== undefined) {
+      // Update the new shape to the new shape
+      this.shapeToNodeMap.set(currentNode.Shape, newChild);
+    }
+    currentNode.LeftNode = newChild;
+    currentNode.RightNode = new AABBNode(shapeAABB, shape, currentNode, undefined, undefined);
     // If rootNode is leaf we didn't pass through while loop so we didn't get a new AABB
-    nextNode.Aabb = this.rootNode.IsLeaf ? this.rootNode.Aabb.Merge(shapeAABB) : newAabb;
-    nextNode.Shape = undefined;
+    currentNode.Aabb = currentNode === this.rootNode ? this.rootNode.Aabb.Merge(shapeAABB) : newAabb;
+    currentNode.Shape = undefined;
 
-    this.shapeToNodeMap.set(shape, newChild);
+    this.shapeToNodeMap.set(shape, currentNode.RightNode);
     return;
   }
 
@@ -94,6 +98,15 @@ export default class AABBTree {
    */
   public GetOverlaps(aabb: AABB): void {
     throw new Error('AABBTree.GetOverlaps is not implemented');
+  }
+
+  public GetAllNodes(): AABBNode[] {
+    let nodes: AABBNode[] = [];
+    this.shapeToNodeMap.forEach((value, key) => {
+      nodes.push(value);
+    });
+
+    return nodes;
   }
 
   /**

@@ -1,5 +1,7 @@
 .vscode/
 lib/
+.cache/
+dist/
 
 # Logs
 logs
