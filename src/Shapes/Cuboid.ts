@@ -1,4 +1,4 @@
-import AABB from 'src/AABB';
+import AABB from '../AABB';
 import IAABBShape from './IAABBShape';
 import Vector3 from './Vector3';
 
@@ -7,6 +7,23 @@ export default class Cuboid implements IAABBShape {
 
   public GetAABB() {
     return new AABB(this.MinX, this.MinY, this.MinZ, this.X, this.Y, this.Z);
+  }
+
+  public ContainsPoint(point: Vector3): boolean {
+    if (point.Z > this.referencePoint.Z || point.Z < this.referencePoint.Z - this.dimensions.Z) {
+      return false;
+    }
+
+    if (
+      point.X >= this.referencePoint.X &&
+      point.X <= this.referencePoint.X + this.dimensions.X &&
+      point.Y >= this.referencePoint.Y &&
+      point.Y <= this.referencePoint.Y + this.dimensions.Y
+    ) {
+      return true;
+    }
+
+    return false;
   }
 
   public get ReferencePoint(): Vector3 {
