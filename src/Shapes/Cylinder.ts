@@ -1,6 +1,6 @@
+import AABB from '../AABB';
 import IAABBShape from './IAABBShape';
 import Vector3 from './Vector3';
-import AABB from 'src/AABB';
 
 export default class Cylinder implements IAABBShape {
   constructor(private referencePoint: Vector3, private radius: number, private depth: number) {}
@@ -14,6 +14,8 @@ export default class Cylinder implements IAABBShape {
 
     return new AABB(minX, minY, minZ, maxX, maxY, this.referencePoint.Z);
   }
+
+  public;
 
   public get ReferencePoint(): Vector3 {
     return this.referencePoint;

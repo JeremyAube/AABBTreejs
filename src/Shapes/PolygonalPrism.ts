@@ -1,4 +1,4 @@
-import AABB from 'src/AABB';
+import AABB from '../AABB';
 import IAABBShape from './IAABBShape';
 import Vector3 from './Vector3';
 
@@ -36,8 +36,10 @@ export default class PolygonalPrism implements IAABBShape {
 
   /**
    * Check if the point is inside the polygon
+   *
+   * **Warning**: If the point is *precisly* on a bound it might yeild **unaccurate result**
    */
-  public PointIsInside(rayStart: Vector3): boolean {
+  public ContainsPoint(rayStart: Vector3): boolean {
     // This code is a refactor from
     // https://rosettacode.org/wiki/Ray-casting_algorithm#JavaScript
     if (rayStart.Z > this.shape[0].Z || rayStart.Z < this.shape[0].Z - this.depth) {
@@ -52,7 +54,7 @@ export default class PolygonalPrism implements IAABBShape {
         hitCount++;
       }
     }
-    return hitCount > 0 && hitCount % 2 === 0;
+    return hitCount > 0 && hitCount % 2 === 1;
   }
 
   /**
