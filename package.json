@@ -2,8 +2,8 @@
   "name": "aabb-tree",
   "version": "2.2.0",
   "description": "Basic implementation of the AABB-Tree (Axis Aligned Box Bounding Tree)",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
