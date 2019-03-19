@@ -1,5 +1,5 @@
 import AABB from './AABB';
-import IAABBShape from './IAABBShape';
+import IAABBShape from './Shapes/IAABBShape';
 
 export default class AABBNode {
   public Aabb: AABB;

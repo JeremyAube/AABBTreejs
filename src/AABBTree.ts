@@ -1,6 +1,6 @@
 import AABB from './AABB';
 import AABBNode from './AABBNode';
-import IAABBShape from './IAABBShape';
+import IAABBShape from './Shapes/IAABBShape';
 
 export default class AABBTree {
   private rootNode?: AABBNode; // The node at the top of the tree
