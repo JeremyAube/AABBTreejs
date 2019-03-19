@@ -2,6 +2,9 @@
 lib/
 .cache/
 dist/
+Shapes/
+*.js
+*.d.ts
 
 # Logs
 logs

@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
-    "demo": "parcel ./demo/visualisation.html",
+    "demo": "parcel ./examples/visualisation.html",
     "test": "jest",
     "prepublish": "npm run test && npm run build"
   },
@@ -46,7 +46,9 @@
     "typescript": "^3.3.3333"
   },
   "files": [
-    "lib/**/*"
+    "*.js",
+    "*.d.ts",
+    "Shapes/"
   ],
   "dependencies": {}
 }
