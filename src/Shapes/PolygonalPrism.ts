@@ -9,6 +9,9 @@ export default class PolygonalPrism implements IAABBShape {
     }
   }
 
+  /**
+   * @returns The bounding box containing the shape
+   */
   public GetAABB(): AABB {
     let maxX = -Infinity;
     let minX = Infinity;
@@ -37,7 +40,12 @@ export default class PolygonalPrism implements IAABBShape {
   /**
    * Check if the point is inside the polygon
    *
-   * **Warning**: If the point is *precisly* on a bound it might yeild **unaccurate result**
+   * @remarks
+   * If the point is exactly on a bound of the shape it might yeild unaccurate results.
+   *
+   * @param rayStart - the point we want to check
+   *
+   * @returns `true` if the point is inside the shape, `false` otherwise
    */
   public ContainsPoint(rayStart: Vector3): boolean {
     // This code is a refactor from
@@ -59,6 +67,10 @@ export default class PolygonalPrism implements IAABBShape {
 
   /**
    * Check if the ray hits the bound
+   *
+   * @param point1 - The begining of the bound
+   * @param point2 - The end of the bound
+   * @param rayStart - The point to check collisions with
    */
   private checkForHit(point1: Vector3, point2: Vector3, rayStart: Vector3): boolean {
     if (point1.Y <= point2.Y) {
@@ -74,6 +86,9 @@ export default class PolygonalPrism implements IAABBShape {
     }
   }
 
+  /**
+   * @returns the shape of the face of the prism
+   */
   public get Shape(): Vector3[] {
     return this.shape;
   }

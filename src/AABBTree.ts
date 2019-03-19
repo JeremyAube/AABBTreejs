@@ -1,17 +1,23 @@
 import AABB from './AABB';
 import AABBNode from './AABBNode';
+import { Vector3 } from './Shapes';
 import IAABBShape from './Shapes/IAABBShape';
 
+/**
+ * Axis Aligned Bounding Box Tree
+ */
 export default class AABBTree {
-  private rootNode?: AABBNode; // The node at the top of the tree
-  private shapeToNodeMap: Map<IAABBShape, AABBNode>; // The map of all the shapes with their associated node
+  private rootNode?: AABBNode;
+  private shapeToNodeMap: Map<IAABBShape, AABBNode>;
 
   constructor() {
     this.shapeToNodeMap = new Map<IAABBShape, AABBNode>();
   }
 
   /**
-   * Add a new shape to the tree
+   * Adds a new shape to the tree.
+   *
+   * @param shape - The shape to add to the tree (Must be an implementation of IAABBShape interface)
    */
   public AddShape(shape: IAABBShape): void {
     const shapeAABB = shape.GetAABB();
@@ -102,7 +108,12 @@ export default class AABBTree {
   }
 
   /**
-   * Remove the shape from the tree
+   * Removes the shape and balances the tree
+   *
+   * @remarks
+   * The method will gracefully exit if the shape doesn't exist in the tree
+   *
+   * @param shape - The shape to remove from the tree
    */
   public RemoveShape(shape: IAABBShape): void {
     if (!this.shapeToNodeMap.has(shape)) {
@@ -115,29 +126,36 @@ export default class AABBTree {
   }
 
   /**
-   * Return all shapes with their AABB overlapping with this AABB
+   * Finds all the shape overlapping with the point
+   *
+   * @remarks
+   * if the tree is empty this function will always return an empty array
+   *
+   * @param shape - The shape to check overlaps against
+   *
+   * @returns An array containing all the shape overlapping with the point
    */
-  public GetOverlaps(aabb: AABB): AABBNode[] {
+  public GetShapesOverlappingWith(point: Vector3): IAABBShape[] {
     if (this.rootNode === undefined) {
       return [];
     }
 
-    const collidingNodes: AABBNode[] = [];
+    const collidingNodes: IAABBShape[] = [];
     const nodesToCheck: AABBNode[] = [this.rootNode as AABBNode];
     let index = 0;
-
     while (nodesToCheck.length > index) {
       const leftNode = (nodesToCheck[index] as AABBNode).LeftNode as AABBNode;
       const rightNode = (nodesToCheck[index] as AABBNode).RightNode as AABBNode;
 
-      const collidingLeft = leftNode.Aabb.Overlaps(aabb);
-      const collidingRight = rightNode.Aabb.Overlaps(aabb);
-
-      if (collidingLeft) {
-        leftNode.IsLeaf ? collidingNodes.push(leftNode) : nodesToCheck.push(leftNode);
+      if (leftNode.Aabb.ContainsPoint(point)) {
+        leftNode.IsLeaf
+          ? this.checkDeepCollision(leftNode.Shape as IAABBShape, point, collidingNodes)
+          : nodesToCheck.push(leftNode);
       }
-      if (collidingRight) {
-        rightNode.IsLeaf ? collidingNodes.push(rightNode) : nodesToCheck.push(rightNode);
+      if (rightNode.Aabb.ContainsPoint(point)) {
+        rightNode.IsLeaf
+          ? this.checkDeepCollision(rightNode.Shape as IAABBShape, point, collidingNodes)
+          : nodesToCheck.push(rightNode);
       }
 
       index++;
@@ -146,6 +164,14 @@ export default class AABBTree {
     return collidingNodes;
   }
 
+  /**
+   * Returns all the node in the tree
+   *
+   * @remarks
+   * The nodes that serves as parent containers are also returned. Do not expect every node to contain a shape
+   *
+   * @returns An array containing all the nodes the tree contains
+   */
   public GetAllNodes(): AABBNode[] {
     const nodes: AABBNode[] = [];
 
@@ -156,6 +182,25 @@ export default class AABBTree {
     return nodes;
   }
 
+  /**
+   * Check true collision (and AABB collision) with the shape and the point
+   *
+   * @param shape - The shape to test collision with
+   * @param point - The point to test collision with
+   * @param array - Reference to the array containing all colliding shapes
+   */
+  private checkDeepCollision(shape: IAABBShape, point: Vector3, array: IAABBShape[]) {
+    if (shape.ContainsPoint(point)) {
+      array.push(shape);
+    }
+  }
+
+  /**
+   * Iterates recursivly over the entire three and all the node to the array
+   *
+   * @param node - The node to iterate over
+   * @param array - Reference to the array that will contain all the nodes in the tree
+   */
   private nodeIterator(node: AABBNode, array: AABBNode[]) {
     array.push(node);
     if (!node.IsLeaf) {
@@ -165,7 +210,9 @@ export default class AABBTree {
   }
 
   /**
-   * Remove the node from the tree
+   * Remove a node from the tree and balances the tree if needed
+   *
+   * @param node - The node to remove from the tree
    */
   private removeNode(node: AABBNode) {
     // if this is the root node we delete everything

@@ -5,10 +5,18 @@ import Vector3 from './Vector3';
 export default class Cylinder implements IAABBShape {
   private radiusSquared: number;
 
+  /**
+   * @param referencePoint - The center point of face of the cylinder
+   * @param radius - the radius of the face of the cylinder
+   * @param depth - the depth of the cylinder
+   */
   constructor(private referencePoint: Vector3, private radius: number, private depth: number) {
     this.radiusSquared = radius * radius;
   }
 
+  /**
+   * @returns The bounding box fully containing the cylinder
+   */
   public GetAABB(): AABB {
     const minX = this.referencePoint.X - this.radius;
     const maxX = this.referencePoint.X + this.radius;
@@ -20,9 +28,13 @@ export default class Cylinder implements IAABBShape {
   }
 
   /**
-   * Returns true if the point is contained within the cylinder
+   * Check if a point is contained within the cylinder
+   *
+   * @param point - the point to check collisions with
+   *
+   * @returns `true` if the point is contained, `false` otherwise
    */
-  public ContainsPoint(point: Vector3) {
+  public ContainsPoint(point: Vector3): boolean {
     if (point.Z > this.referencePoint.Z || point.Z < this.referencePoint.Z - this.depth) {
       return false;
     }
@@ -31,9 +43,15 @@ export default class Cylinder implements IAABBShape {
     return distSquared < this.radiusSquared;
   }
 
+  /**
+   * @returns the center of the face of the cylinder
+   */
   public get ReferencePoint(): Vector3 {
     return this.referencePoint;
   }
+  /**
+   * @returns the radius of the face of the cylinder
+   */
   public get Radius(): number {
     return this.radius;
   }

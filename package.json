@@ -7,8 +7,9 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
-    "demo": "parcel ./examples/visualisation.html",
+    "example": "parcel ./examples/visualisation.html",
     "test": "jest",
+    "docs": "typedoc --out ./doc ./src",
     "prepublish": "npm run test && npm run build"
   },
   "repository": {
@@ -43,6 +44,7 @@
     "ts-jest": "^24.0.0",
     "tslint": "^5.13.1",
     "tslint-config-prettier": "^1.18.0",
+    "typedoc": "^0.14.2",
     "typescript": "^3.3.3333"
   },
   "files": [
