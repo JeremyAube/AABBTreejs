@@ -1,5 +1,6 @@
-import AABB3D from './AABB3d';
 import IAABBShape from './IAABBShape';
+import AABB2D from './AABB2d';
+import AABB3D from './AABB3d';
 
 /**
  * Axis Aligned Bouding Box Node
@@ -8,7 +9,7 @@ import IAABBShape from './IAABBShape';
  * The bounding box on this nodes either fully contains the shape or the two child nodes.
  */
 export default class AABBNode {
-  public Aabb: AABB3D;
+  public Aabb: AABB2D | AABB3D;
   public Shape?: IAABBShape;
 
   public ParentNode?: AABBNode;
@@ -22,8 +23,8 @@ export default class AABBNode {
    * @param leftNode - The first child node
    * @param rightNode - The second child node
    */
-  constructor(aabb: AABB3D, shape?: IAABBShape, parentNode?: AABBNode, leftNode?: AABBNode, rightNode?: AABBNode) {
-    this.Aabb = aabb;
+  constructor(Aabb: AABB2D | AABB3D, shape?: IAABBShape, parentNode?: AABBNode, leftNode?: AABBNode, rightNode?: AABBNode) {
+    this.Aabb = Aabb;
     this.Shape = shape;
 
     this.ParentNode = parentNode;

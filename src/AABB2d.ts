@@ -74,7 +74,7 @@ export default class AABB2D {
   public get Height(): number {
     return this.MaxY - this.MinY;
   }
-  public get Area(): number {
+  public get Space(): number {
     return this.Width * this.Height;
   }
 }

@@ -34,7 +34,6 @@ export default class AABB3D {
    * Merges the two bounding boxes to create a larger one containing the two
    *
    * @param other - The other bounding box to use for merging
-   *
    * @returns The new bounding box containing both bounding boxes
    */
   public Merge(other: AABB3D): AABB3D {
@@ -52,21 +51,14 @@ export default class AABB3D {
    * Check if the other bounding box is overlapping with this one
    *
    * @param other - The bounding box to check overlap against
-   *
    * @returns `true` if the other bounding box is colling, `false` otherwise
-   *
    */
-  public Overlaps(other: AABB3D, is3D: boolean): boolean {
+  public Overlaps(other: AABB3D): boolean {
     return (
       this.MaxX > other.MinX &&
       this.MinX < other.MaxX &&
       this.MaxY > other.MinY &&
-      this.MinY < other.MaxY &&
-      (
-        is3D &&
-        this.MaxZ > other.MinZ &&
-        this.MinZ < other.MaxZ
-      )
+      this.MinY < other.MaxY
     );
   }
 
@@ -74,20 +66,14 @@ export default class AABB3D {
    * Check if the point is contained within the bounding box
    *
    * @param point - The point to check
-   *
    * @returns `true` if the point is inside the bounding box, `false` otherwise
    */
-  public ContainsPoint(point: Vector3, is3D: boolean): boolean {
+  public ContainsPoint(point: Vector3): boolean {
     return (
       this.MinX < point.X &&
       this.MaxX > point.X &&
       this.MinY < point.Y &&
-      this.MaxY > point.Y &&
-      (
-      is3D &&
-      this.MinZ < point.Z &&
-      this.MaxZ > point.Z
-      )
+      this.MaxY > point.Y
     );
   }
 
@@ -100,7 +86,7 @@ export default class AABB3D {
   public get Depth(): number {
     return this.MaxZ - this.MinZ;
   }
-  public get Volume(): number {
+  public get Space(): number {
     return this.Width * this.Height * this.Depth;
   }
 }

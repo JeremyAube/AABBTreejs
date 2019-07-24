@@ -22,7 +22,7 @@ export default class AABBTree {
    */
   public AddShape(shape: IAABBShape): void {
     const shapeAABB = shape.GetAABB();
-
+    
     // If there is no item in the tree we create the root node
     if (this.rootNode === undefined) {
       this.rootNode = new AABBNode(shapeAABB, shape, undefined, undefined, undefined);
@@ -41,7 +41,7 @@ export default class AABBTree {
       const newLeftAabb = leftNode.Aabb.Merge(shapeAABB);
       const newRightAabb = rightNode.Aabb.Merge(shapeAABB);
 
-      const volumeDifference = newNodeAabb.Volume - currentNode.Aabb.Volume;
+      const volumeDifference = newNodeAabb.Volume - currentNode.Aabb.Space;
       if (volumeDifference > 0) {
         let leftCost;
         let rightCost;
@@ -49,13 +49,13 @@ export default class AABBTree {
         if (leftNode.IsLeaf) {
           leftCost = newLeftAabb.Volume + volumeDifference;
         } else {
-          leftCost = newLeftAabb.Volume - leftNode.Aabb.Volume + volumeDifference;
+          leftCost = newLeftAabb.Volume - leftNode.Aabb.Space + volumeDifference;
         }
 
         if (rightNode.IsLeaf) {
           rightCost = newRightAabb.Volume + volumeDifference;
         } else {
-          rightCost = newRightAabb.Volume - rightNode.Aabb.Volume + volumeDifference;
+          rightCost = newRightAabb.Volume - rightNode.Aabb.Space + volumeDifference;
         }
 
         // For some reason 1.3 is a good bias to introduce. Might need to understand that some day...
@@ -76,8 +76,8 @@ export default class AABBTree {
       // Set the new AABB right away so we don't have to traverse the tree backwards after insert
       currentNode.Aabb = newNodeAabb;
 
-      const leftVolumeIncrease = newLeftAabb.Volume - leftNode.Aabb.Volume;
-      const rightVolumeIncrease = newRightAabb.Volume - rightNode.Aabb.Volume;
+      const leftVolumeIncrease = newLeftAabb.Volume - leftNode.Aabb.Space;
+      const rightVolumeIncrease = newRightAabb.Volume - rightNode.Aabb.Space;
       if (leftVolumeIncrease > rightVolumeIncrease) {
         currentNode = rightNode;
         newAabb = newRightAabb;
@@ -148,12 +148,12 @@ export default class AABBTree {
       const leftNode = (nodesToCheck[index] as AABBNode).LeftNode as AABBNode;
       const rightNode = (nodesToCheck[index] as AABBNode).RightNode as AABBNode;
 
-      if (leftNode.Aabb.ContainsPoint(point, this.is3D)) {
+      if (leftNode.Aabb.ContainsPoint(point)) {
         leftNode.IsLeaf
           ? this.checkDeepCollision(leftNode.Shape as IAABBShape, point, collidingNodes)
           : nodesToCheck.push(leftNode);
       }
-      if (rightNode.Aabb.ContainsPoint(point, this.is3D)) {
+      if (rightNode.Aabb.ContainsPoint(point)) {
         rightNode.IsLeaf
           ? this.checkDeepCollision(rightNode.Shape as IAABBShape, point, collidingNodes)
           : nodesToCheck.push(rightNode);
