@@ -1,36 +1,36 @@
 import Cylinder from '../../src/Shapes/Cylinder';
-import Vector3 from '../../src/Shapes/Vector3';
+import Vector3 from '../../src/Vector3';
 
 describe('Cynlinder Shape', () => {
   const cylinder = new Cylinder(new Vector3(1, 1, 0), 1, 1);
 
-  it('should detect the point inside the cylinder v1', () => {
+  it('should detect the point inside the cylinder in 3d v1', () => {
     const point = new Vector3(1, 1, -0.5);
-    const inside = cylinder.ContainsPoint(point);
+    const inside = cylinder.ContainsPoint(point, true);
     expect(inside).toBe(true);
   });
 
-  it('should detect the point inside the cylinder v2', () => {
+  it('should detect the point inside the cylinder in 3d v2', () => {
     const point = new Vector3(1, 1.5, -0.75);
-    const inside = cylinder.ContainsPoint(point);
+    const inside = cylinder.ContainsPoint(point, true);
     expect(inside).toBe(true);
   });
 
-  it('should detect the point ouside the cylinder v1', () => {
+  it('should detect the point ouside the cylinder in 3d v1', () => {
     const point = new Vector3(0, 0, -0.5);
-    const inside = cylinder.ContainsPoint(point);
+    const inside = cylinder.ContainsPoint(point, true);
     expect(inside).toBe(false);
   });
 
-  it('should detect the point outside the cylinder v2', () => {
+  it('should detect the point outside the cylinder in 3d v2', () => {
     const point = new Vector3(-1, 1, -0.25);
-    const inside = cylinder.ContainsPoint(point);
+    const inside = cylinder.ContainsPoint(point, true);
     expect(inside).toBe(false);
   });
 
-  it('should detect the point outside the cylinder v3', () => {
+  it('should detect the point outside the cylinder in 3d v3', () => {
     const point = new Vector3(1, 1, -2);
-    const inside = cylinder.ContainsPoint(point);
+    const inside = cylinder.ContainsPoint(point, true);
     expect(inside).toBe(false);
   });
 });

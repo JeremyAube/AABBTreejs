@@ -1,7 +1,6 @@
-import AABB from './AABB';
 import AABBNode from './AABBNode';
-import { Vector3 } from './Shapes';
-import IAABBShape from './Shapes/IAABBShape';
+import Vector3 from './Vector3';
+import IAABBShape from './IAABBShape';
 
 /**
  * Axis Aligned Bounding Box Tree
@@ -9,8 +8,10 @@ import IAABBShape from './Shapes/IAABBShape';
 export default class AABBTree {
   private rootNode?: AABBNode;
   private shapeToNodeMap: Map<IAABBShape, AABBNode>;
+  private is3D: boolean;
 
-  constructor() {
+  constructor(dimensions: '2d' | '3d') {
+    this.is3D = dimensions === '3d';
     this.shapeToNodeMap = new Map<IAABBShape, AABBNode>();
   }
 
@@ -147,12 +148,12 @@ export default class AABBTree {
       const leftNode = (nodesToCheck[index] as AABBNode).LeftNode as AABBNode;
       const rightNode = (nodesToCheck[index] as AABBNode).RightNode as AABBNode;
 
-      if (leftNode.Aabb.ContainsPoint(point)) {
+      if (leftNode.Aabb.ContainsPoint(point, this.is3D)) {
         leftNode.IsLeaf
           ? this.checkDeepCollision(leftNode.Shape as IAABBShape, point, collidingNodes)
           : nodesToCheck.push(leftNode);
       }
-      if (rightNode.Aabb.ContainsPoint(point)) {
+      if (rightNode.Aabb.ContainsPoint(point, this.is3D)) {
         rightNode.IsLeaf
           ? this.checkDeepCollision(rightNode.Shape as IAABBShape, point, collidingNodes)
           : nodesToCheck.push(rightNode);

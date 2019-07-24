@@ -1,6 +1,6 @@
-import AABB from '../AABB';
-import IAABBShape from './IAABBShape';
-import Vector3 from './Vector3';
+import AABB3D from '../AABB3d';
+import IAABBShape from '../IAABBShape';
+import Vector3 from '../Vector3';
 
 export default class PolygonalPrism implements IAABBShape {
   constructor(private shape: Vector3[], private depth: number) {
@@ -12,7 +12,7 @@ export default class PolygonalPrism implements IAABBShape {
   /**
    * @returns The bounding box containing the shape
    */
-  public GetAABB(): AABB {
+  public GetAABB(): AABB3D {
     let maxX = -Infinity;
     let minX = Infinity;
     let maxY = -Infinity;
@@ -34,7 +34,7 @@ export default class PolygonalPrism implements IAABBShape {
       }
     });
 
-    return new AABB(minX, minY, this.shape[0].Z, maxX, maxY, this.shape[0].Z + this.depth);
+    return new AABB3D(minX, minY, this.shape[0].Z, maxX, maxY, this.shape[0].Z + this.depth);
   }
 
   /**

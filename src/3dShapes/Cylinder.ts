@@ -1,6 +1,6 @@
-import AABB from '../AABB';
-import IAABBShape from './IAABBShape';
-import Vector3 from './Vector3';
+import AABB3D from '../AABB3d';
+import IAABBShape from '../IAABBShape';
+import Vector3 from '../Vector3';
 
 export default class Cylinder implements IAABBShape {
   private radiusSquared: number;
@@ -17,14 +17,14 @@ export default class Cylinder implements IAABBShape {
   /**
    * @returns The bounding box fully containing the cylinder
    */
-  public GetAABB(): AABB {
+  public GetAABB(): AABB3D {
     const minX = this.referencePoint.X - this.radius;
     const maxX = this.referencePoint.X + this.radius;
     const minY = this.referencePoint.Y - this.radius;
     const maxY = this.referencePoint.Y + this.radius;
     const minZ = this.referencePoint.Z - this.depth;
 
-    return new AABB(minX, minY, minZ, maxX, maxY, this.referencePoint.Z);
+    return new AABB3D(minX, minY, minZ, maxX, maxY, this.referencePoint.Z);
   }
 
   /**
