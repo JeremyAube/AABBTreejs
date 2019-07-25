@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Cylinder | aabb-tree</title>
+	<title>PolygonalPrism | aabb-tree</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_shapes_cylinder_.html">&quot;Shapes/Cylinder&quot;</a>
+					<a href="../modules/_3dshapes_polygonalprism_.html">&quot;3dShapes/PolygonalPrism&quot;</a>
 				</li>
 				<li>
-					<a href="_shapes_cylinder_.cylinder.html">Cylinder</a>
+					<a href="_3dshapes_polygonalprism_.polygonalprism.html">PolygonalPrism</a>
 				</li>
 			</ul>
-			<h1>Class Cylinder</h1>
+			<h1>Class PolygonalPrism</h1>
 		</div>
 	</div>
 </header>
@@ -73,14 +73,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Cylinder</span>
+						<span class="target">PolygonalPrism</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../interfaces/_shapes_iaabbshape_.iaabbshape.html" class="tsd-signature-type">IAABBShape</a></li>
+					<li><a href="../interfaces/_iaabbshape_.iaabbshape.html" class="tsd-signature-type">IAABBShape</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -90,31 +90,29 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_shapes_cylinder_.cylinder.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_3dshapes_polygonalprism_.polygonalprism.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_shapes_cylinder_.cylinder.html#depth" class="tsd-kind-icon">depth</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_shapes_cylinder_.cylinder.html#radius" class="tsd-kind-icon">radius</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_shapes_cylinder_.cylinder.html#radiussquared" class="tsd-kind-icon">radius<wbr>Squared</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_shapes_cylinder_.cylinder.html#referencepoint" class="tsd-kind-icon">reference<wbr>Point</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_3dshapes_polygonalprism_.polygonalprism.html#depth" class="tsd-kind-icon">depth</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_3dshapes_polygonalprism_.polygonalprism.html#shape" class="tsd-kind-icon">shape</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_shapes_cylinder_.cylinder.html#depth-1" class="tsd-kind-icon">Depth</a></li>
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_shapes_cylinder_.cylinder.html#radius-1" class="tsd-kind-icon">Radius</a></li>
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_shapes_cylinder_.cylinder.html#referencepoint-1" class="tsd-kind-icon">Reference<wbr>Point</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_3dshapes_polygonalprism_.polygonalprism.html#depth-1" class="tsd-kind-icon">Depth</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_3dshapes_polygonalprism_.polygonalprism.html#shape-1" class="tsd-kind-icon">Shape</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_shapes_cylinder_.cylinder.html#containspoint" class="tsd-kind-icon">Contains<wbr>Point</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_shapes_cylinder_.cylinder.html#getaabb" class="tsd-kind-icon">GetAABB</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_3dshapes_polygonalprism_.polygonalprism.html#containspoint" class="tsd-kind-icon">Contains<wbr>Point</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_3dshapes_polygonalprism_.polygonalprism.html#getaabb" class="tsd-kind-icon">GetAABB</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_3dshapes_polygonalprism_.polygonalprism.html#checkforhit" class="tsd-kind-icon">check<wbr>For<wbr>Hit</a></li>
 							</ul>
 						</section>
 					</div>
@@ -126,45 +124,25 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Cylinder<span class="tsd-signature-symbol">(</span>referencePoint<span class="tsd-signature-symbol">: </span><a href="_shapes_vector3_.vector3.html" class="tsd-signature-type">Vector3</a>, radius<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, depth<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_shapes_cylinder_.cylinder.html" class="tsd-signature-type">Cylinder</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Polygonal<wbr>Prism<span class="tsd-signature-symbol">(</span>shape<span class="tsd-signature-symbol">: </span><a href="_vector3_.vector3.html" class="tsd-signature-type">Vector3</a><span class="tsd-signature-symbol">[]</span>, depth<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_3dshapes_polygonalprism_.polygonalprism.html" class="tsd-signature-type">PolygonalPrism</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/Shapes/Cylinder.ts#L6">Shapes/Cylinder.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/3dShapes/PolygonalPrism.ts#L5">3dShapes/PolygonalPrism.ts:5</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>referencePoint: <a href="_shapes_vector3_.vector3.html" class="tsd-signature-type">Vector3</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>The center point of face of the cylinder</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<h5>radius: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>the radius of the face of the cylinder</p>
-										</div>
-									</div>
+									<h5>shape: <a href="_vector3_.vector3.html" class="tsd-signature-type">Vector3</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 								<li>
 									<h5>depth: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>the depth of the cylinder</p>
-										</div>
-									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_shapes_cylinder_.cylinder.html" class="tsd-signature-type">Cylinder</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_3dshapes_polygonalprism_.polygonalprism.html" class="tsd-signature-type">PolygonalPrism</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -177,54 +155,19 @@
 					<div class="tsd-signature tsd-kind-icon">depth<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/Shapes/Cylinder.ts#L13">Shapes/Cylinder.ts:13</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>the depth of the cylinder</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="radius" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> radius</h3>
-					<div class="tsd-signature tsd-kind-icon">radius<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/Shapes/Cylinder.ts#L13">Shapes/Cylinder.ts:13</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>the radius of the face of the cylinder</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="radiussquared" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> radius<wbr>Squared</h3>
-					<div class="tsd-signature tsd-kind-icon">radius<wbr>Squared<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/Shapes/Cylinder.ts#L6">Shapes/Cylinder.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/3dShapes/PolygonalPrism.ts#L6">3dShapes/PolygonalPrism.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="referencepoint" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> reference<wbr>Point</h3>
-					<div class="tsd-signature tsd-kind-icon">reference<wbr>Point<span class="tsd-signature-symbol">:</span> <a href="_shapes_vector3_.vector3.html" class="tsd-signature-type">Vector3</a></div>
+					<a name="shape" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> shape</h3>
+					<div class="tsd-signature tsd-kind-icon">shape<span class="tsd-signature-symbol">:</span> <a href="_vector3_.vector3.html" class="tsd-signature-type">Vector3</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/Shapes/Cylinder.ts#L13">Shapes/Cylinder.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/3dShapes/PolygonalPrism.ts#L6">3dShapes/PolygonalPrism.ts:6</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The center point of face of the cylinder</p>
-						</div>
-					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -239,7 +182,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/Shapes/Cylinder.ts#L58">Shapes/Cylinder.ts:58</a></li>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/3dShapes/PolygonalPrism.ts#L95">3dShapes/PolygonalPrism.ts:95</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -247,42 +190,22 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="radius-1" class="tsd-anchor"></a>
-					<h3>Radius</h3>
+					<a name="shape-1" class="tsd-anchor"></a>
+					<h3>Shape</h3>
 					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> Radius<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> Shape<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_vector3_.vector3.html" class="tsd-signature-type">Vector3</a><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/Shapes/Cylinder.ts#L55">Shapes/Cylinder.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/3dShapes/PolygonalPrism.ts#L92">3dShapes/PolygonalPrism.ts:92</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>the radius of the face of the cylinder</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="referencepoint-1" class="tsd-anchor"></a>
-					<h3>Reference<wbr>Point</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> ReferencePoint<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_shapes_vector3_.vector3.html" class="tsd-signature-type">Vector3</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/Shapes/Cylinder.ts#L49">Shapes/Cylinder.ts:49</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
-							<h4 class="tsd-returns-title">Returns <a href="_shapes_vector3_.vector3.html" class="tsd-signature-type">Vector3</a></h4>
-							<p>the center of the face of the cylinder</p>
+							<h4 class="tsd-returns-title">Returns <a href="_vector3_.vector3.html" class="tsd-signature-type">Vector3</a><span class="tsd-signature-symbol">[]</span></h4>
+							<p>the shape of the face of the prism</p>
 						</li>
 					</ul>
 				</section>
@@ -293,32 +216,36 @@
 					<a name="containspoint" class="tsd-anchor"></a>
 					<h3>Contains<wbr>Point</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Contains<wbr>Point<span class="tsd-signature-symbol">(</span>point<span class="tsd-signature-symbol">: </span><a href="_shapes_vector3_.vector3.html" class="tsd-signature-type">Vector3</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">Contains<wbr>Point<span class="tsd-signature-symbol">(</span>rayStart<span class="tsd-signature-symbol">: </span><a href="_vector3_.vector3.html" class="tsd-signature-type">Vector3</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/_shapes_iaabbshape_.iaabbshape.html">IAABBShape</a>.<a href="../interfaces/_shapes_iaabbshape_.iaabbshape.html#containspoint">ContainsPoint</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/Shapes/Cylinder.ts#L37">Shapes/Cylinder.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/3dShapes/PolygonalPrism.ts#L50">3dShapes/PolygonalPrism.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Check if a point is contained within the cylinder</p>
+									<p>Check if the point is inside the polygon</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>If the point is exactly on a bound of the shape it might yeild unaccurate results.</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>point: <a href="_shapes_vector3_.vector3.html" class="tsd-signature-type">Vector3</a></h5>
+									<h5>rayStart: <a href="_vector3_.vector3.html" class="tsd-signature-type">Vector3</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the point to check collisions with</p>
+										<p>the point we want to check</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p><code>true</code> if the point is contained, <code>false</code> otherwise</p>
+							<p><code>true</code> if the point is inside the shape, <code>false</code> otherwise</p>
 						</li>
 					</ul>
 				</section>
@@ -331,15 +258,58 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/_shapes_iaabbshape_.iaabbshape.html">IAABBShape</a>.<a href="../interfaces/_shapes_iaabbshape_.iaabbshape.html#getaabb">GetAABB</a></p>
+								<p>Implementation of <a href="../interfaces/_iaabbshape_.iaabbshape.html">IAABBShape</a>.<a href="../interfaces/_iaabbshape_.iaabbshape.html#getaabb">GetAABB</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/Shapes/Cylinder.ts#L20">Shapes/Cylinder.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/3dShapes/PolygonalPrism.ts#L15">3dShapes/PolygonalPrism.ts:15</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="_aabb_.aabb.html" class="tsd-signature-type">AABB</a></h4>
-							<p>The bounding box fully containing the cylinder</p>
+							<p>The bounding box containing the shape</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="checkforhit" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> check<wbr>For<wbr>Hit</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">check<wbr>For<wbr>Hit<span class="tsd-signature-symbol">(</span>point1<span class="tsd-signature-symbol">: </span><a href="_vector3_.vector3.html" class="tsd-signature-type">Vector3</a>, point2<span class="tsd-signature-symbol">: </span><a href="_vector3_.vector3.html" class="tsd-signature-type">Vector3</a>, rayStart<span class="tsd-signature-symbol">: </span><a href="_vector3_.vector3.html" class="tsd-signature-type">Vector3</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/3dShapes/PolygonalPrism.ts#L75">3dShapes/PolygonalPrism.ts:75</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Check if the ray hits the bound</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>point1: <a href="_vector3_.vector3.html" class="tsd-signature-type">Vector3</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The begining of the bound</p>
+									</div>
+								</li>
+								<li>
+									<h5>point2: <a href="_vector3_.vector3.html" class="tsd-signature-type">Vector3</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The end of the bound</p>
+									</div>
+								</li>
+								<li>
+									<h5>rayStart: <a href="_vector3_.vector3.html" class="tsd-signature-type">Vector3</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The point to check collisions with</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -352,6 +322,24 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="../modules/_2dshapes_circle_.html">"2d<wbr>Shapes/<wbr>Circle"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_2dshapes_polygon_.html">"2d<wbr>Shapes/<wbr>Polygon"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_2dshapes_index_.html">"2d<wbr>Shapes/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_3dshapes_cylinder_.html">"3d<wbr>Shapes/<wbr>Cylinder"</a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/_3dshapes_polygonalprism_.html">"3d<wbr>Shapes/<wbr>Polygonal<wbr>Prism"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_3dshapes_index_.html">"3d<wbr>Shapes/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_aabb_.html">"AABB"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -361,22 +349,13 @@
 						<a href="../modules/_aabbtree_.html">"AABBTree"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_shapes_cuboid_.html">"<wbr>Shapes/<wbr>Cuboid"</a>
-					</li>
-					<li class="current tsd-kind-external-module">
-						<a href="../modules/_shapes_cylinder_.html">"<wbr>Shapes/<wbr>Cylinder"</a>
+						<a href="../modules/_iaabbshape_.html">"IAABBShape"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_shapes_iaabbshape_.html">"<wbr>Shapes/IAABBShape"</a>
+						<a href="../modules/_vector2_.html">"<wbr>Vector2"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_shapes_polygonalprism_.html">"<wbr>Shapes/<wbr>Polygonal<wbr>Prism"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_shapes_vector3_.html">"<wbr>Shapes/<wbr>Vector3"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_shapes_index_.html">"<wbr>Shapes/index"</a>
+						<a href="../modules/_vector3_.html">"<wbr>Vector3"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_index_.html">"index"</a>
@@ -388,37 +367,31 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_shapes_cylinder_.cylinder.html" class="tsd-kind-icon">Cylinder</a>
+						<a href="_3dshapes_polygonalprism_.polygonalprism.html" class="tsd-kind-icon">Polygonal<wbr>Prism</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="_shapes_cylinder_.cylinder.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="_3dshapes_polygonalprism_.polygonalprism.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_shapes_cylinder_.cylinder.html#depth" class="tsd-kind-icon">depth</a>
+								<a href="_3dshapes_polygonalprism_.polygonalprism.html#depth" class="tsd-kind-icon">depth</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_shapes_cylinder_.cylinder.html#radius" class="tsd-kind-icon">radius</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_shapes_cylinder_.cylinder.html#radiussquared" class="tsd-kind-icon">radius<wbr>Squared</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_shapes_cylinder_.cylinder.html#referencepoint" class="tsd-kind-icon">reference<wbr>Point</a>
+								<a href="_3dshapes_polygonalprism_.polygonalprism.html#shape" class="tsd-kind-icon">shape</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="_shapes_cylinder_.cylinder.html#depth-1" class="tsd-kind-icon">Depth</a>
+								<a href="_3dshapes_polygonalprism_.polygonalprism.html#depth-1" class="tsd-kind-icon">Depth</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="_shapes_cylinder_.cylinder.html#radius-1" class="tsd-kind-icon">Radius</a>
-							</li>
-							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="_shapes_cylinder_.cylinder.html#referencepoint-1" class="tsd-kind-icon">Reference<wbr>Point</a>
+								<a href="_3dshapes_polygonalprism_.polygonalprism.html#shape-1" class="tsd-kind-icon">Shape</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_shapes_cylinder_.cylinder.html#containspoint" class="tsd-kind-icon">Contains<wbr>Point</a>
+								<a href="_3dshapes_polygonalprism_.polygonalprism.html#containspoint" class="tsd-kind-icon">Contains<wbr>Point</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_shapes_cylinder_.cylinder.html#getaabb" class="tsd-kind-icon">GetAABB</a>
+								<a href="_3dshapes_polygonalprism_.polygonalprism.html#getaabb" class="tsd-kind-icon">GetAABB</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_3dshapes_polygonalprism_.polygonalprism.html#checkforhit" class="tsd-kind-icon">check<wbr>For<wbr>Hit</a>
 							</li>
 						</ul>
 					</li>

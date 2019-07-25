@@ -5,6 +5,8 @@ dist/
 Shapes/
 *.js
 *.d.ts
+2dShapes
+3dShapes
 
 # Logs
 logs

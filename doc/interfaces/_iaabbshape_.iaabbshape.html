@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;AABBNode&quot; | aabb-tree</title>
+	<title>IAABBShape | aabb-tree</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,27 +56,91 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_aabbnode_.html">&quot;AABBNode&quot;</a>
+					<a href="../modules/_iaabbshape_.html">&quot;IAABBShape&quot;</a>
+				</li>
+				<li>
+					<a href="_iaabbshape_.iaabbshape.html">IAABBShape</a>
 				</li>
 			</ul>
-			<h1>External module &quot;AABBNode&quot;</h1>
+			<h1>Interface IAABBShape</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">IAABBShape</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implemented by</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../classes/_2dshapes_circle_.circle.html" class="tsd-signature-type">Circle</a></li>
+					<li><a href="../classes/_3dshapes_cylinder_.cylinder.html" class="tsd-signature-type">Cylinder</a></li>
+					<li><a href="../classes/_2dshapes_polygon_.polygon.html" class="tsd-signature-type">Polygon</a></li>
+					<li><a href="../classes/_3dshapes_polygonalprism_.polygonalprism.html" class="tsd-signature-type">PolygonalPrism</a></li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Classes</h3>
+							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/_aabbnode_.aabbnode.html" class="tsd-kind-icon">AABBNode</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_iaabbshape_.iaabbshape.html#containspoint" class="tsd-kind-icon">Contains<wbr>Point</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_iaabbshape_.iaabbshape.html#getaabb" class="tsd-kind-icon">GetAABB</a></li>
 							</ul>
 						</section>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="containspoint" class="tsd-anchor"></a>
+					<h3>Contains<wbr>Point</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">Contains<wbr>Point<span class="tsd-signature-symbol">(</span>point<span class="tsd-signature-symbol">: </span><a href="../classes/_vector3_.vector3.html" class="tsd-signature-type">Vector3</a><span class="tsd-signature-symbol"> | </span><a href="../classes/_vector2_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/IAABBShape.ts#L7">IAABBShape.ts:7</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>point: <a href="../classes/_vector3_.vector3.html" class="tsd-signature-type">Vector3</a><span class="tsd-signature-symbol"> | </span><a href="../classes/_vector2_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="getaabb" class="tsd-anchor"></a>
+					<h3>GetAABB</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">GetAABB<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_aabb_.aabb.html" class="tsd-signature-type">AABB</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/IAABBShape.ts#L6">IAABBShape.ts:6</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="../classes/_aabb_.aabb.html" class="tsd-signature-type">AABB</a></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -87,42 +151,63 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_aabb_.html">"AABB"</a>
+						<a href="../modules/_2dshapes_circle_.html">"2d<wbr>Shapes/<wbr>Circle"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_2dshapes_polygon_.html">"2d<wbr>Shapes/<wbr>Polygon"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_2dshapes_index_.html">"2d<wbr>Shapes/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_3dshapes_cylinder_.html">"3d<wbr>Shapes/<wbr>Cylinder"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_3dshapes_polygonalprism_.html">"3d<wbr>Shapes/<wbr>Polygonal<wbr>Prism"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_3dshapes_index_.html">"3d<wbr>Shapes/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_aabb_.html">"AABB"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_aabbnode_.html">"AABBNode"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_aabbtree_.html">"AABBTree"</a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="_aabbnode_.html">"AABBNode"</a>
+						<a href="../modules/_iaabbshape_.html">"IAABBShape"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_aabbtree_.html">"AABBTree"</a>
+						<a href="../modules/_vector2_.html">"<wbr>Vector2"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_shapes_cuboid_.html">"<wbr>Shapes/<wbr>Cuboid"</a>
+						<a href="../modules/_vector3_.html">"<wbr>Vector3"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="_shapes_cylinder_.html">"<wbr>Shapes/<wbr>Cylinder"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_shapes_iaabbshape_.html">"<wbr>Shapes/IAABBShape"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_shapes_polygonalprism_.html">"<wbr>Shapes/<wbr>Polygonal<wbr>Prism"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_shapes_vector3_.html">"<wbr>Shapes/<wbr>Vector3"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_shapes_index_.html">"<wbr>Shapes/index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_index_.html">"index"</a>
+						<a href="../modules/_index_.html">"index"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/_aabbnode_.aabbnode.html" class="tsd-kind-icon">AABBNode</a>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_iaabbshape_.iaabbshape.html" class="tsd-kind-icon">IAABBShape</a>
+						<ul>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="_iaabbshape_.iaabbshape.html#containspoint" class="tsd-kind-icon">Contains<wbr>Point</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="_iaabbshape_.iaabbshape.html#getaabb" class="tsd-kind-icon">GetAABB</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 				</ul>
 			</nav>
 		</div>

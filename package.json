@@ -7,7 +7,6 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
-    "example": "parcel ./examples/visualisation.html",
     "test": "jest",
     "docs": "typedoc --out ./doc ./src",
     "prepublish": "npm run test && npm run build"
@@ -18,7 +17,7 @@
   },
   "keywords": [
     "AABBTree",
-    "Graphics",
+    "Bounding Box Tree",
     "Collision",
     "Binary Tree",
     "Bounding Box"
@@ -35,12 +34,8 @@
   "homepage": "https://github.com/JeremyAube/AABBTreejs#readme",
   "devDependencies": {
     "@types/jest": "^24.0.15",
-    "camera-controls": "^1.10.8",
     "jest": "^24.5.0",
-    "parcel": "^1.12.2",
     "prettier": "^1.16.4",
-    "three": "^0.102.1",
-    "three-orbitcontrols-ts": "^0.1.2",
     "ts-jest": "^24.0.0",
     "tslint": "^5.13.1",
     "tslint-config-prettier": "^1.18.0",

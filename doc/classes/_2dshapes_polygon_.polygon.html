@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Vector3 | aabb-tree</title>
+	<title>Polygon | aabb-tree</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,32 +56,31 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_shapes_vector3_.html">&quot;Shapes/Vector3&quot;</a>
+					<a href="../modules/_2dshapes_polygon_.html">&quot;2dShapes/Polygon&quot;</a>
 				</li>
 				<li>
-					<a href="_shapes_vector3_.vector3.html">Vector3</a>
+					<a href="_2dshapes_polygon_.polygon.html">Polygon</a>
 				</li>
 			</ul>
-			<h1>Class Vector3</h1>
+			<h1>Class Polygon</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>A reprensentation of a point in 3D space. <em>Z* and *X</em> represent the 2D position and <em>Y</em> represent the elevation</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Vector3</span>
+						<span class="target">Polygon</span>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../interfaces/_iaabbshape_.iaabbshape.html" class="tsd-signature-type">IAABBShape</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -91,23 +90,22 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_shapes_vector3_.vector3.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_2dshapes_polygon_.polygon.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_shapes_vector3_.vector3.html#x" class="tsd-kind-icon">x</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_shapes_vector3_.vector3.html#y" class="tsd-kind-icon">y</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_shapes_vector3_.vector3.html#z" class="tsd-kind-icon">z</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_2dshapes_polygon_.polygon.html#aabb" class="tsd-kind-icon">AABB</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_2dshapes_polygon_.polygon.html#shape" class="tsd-kind-icon">shape</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Accessors</h3>
+							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_shapes_vector3_.vector3.html#x-1" class="tsd-kind-icon">X</a></li>
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_shapes_vector3_.vector3.html#y-1" class="tsd-kind-icon">Y</a></li>
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_shapes_vector3_.vector3.html#z-1" class="tsd-kind-icon">Z</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_2dshapes_polygon_.polygon.html#containspoint" class="tsd-kind-icon">Contains<wbr>Point</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_2dshapes_polygon_.polygon.html#getaabb" class="tsd-kind-icon">GetAABB</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_2dshapes_polygon_.polygon.html#checkforhit" class="tsd-kind-icon">check<wbr>For<wbr>Hit</a></li>
 							</ul>
 						</section>
 					</div>
@@ -119,45 +117,22 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Vector3<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, z<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_shapes_vector3_.vector3.html" class="tsd-signature-type">Vector3</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Polygon<span class="tsd-signature-symbol">(</span>shape<span class="tsd-signature-symbol">: </span><a href="_vector2_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_2dshapes_polygon_.polygon.html" class="tsd-signature-type">Polygon</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/Shapes/Vector3.ts#L4">Shapes/Vector3.ts:4</a></li>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/2dShapes/Polygon.ts#L6">2dShapes/Polygon.ts:6</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>x: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>X position</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<h5>y: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Elevation</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<h5>z: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Z position</p>
-										</div>
-									</div>
+									<h5>shape: <a href="_vector2_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_shapes_vector3_.vector3.html" class="tsd-signature-type">Vector3</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_2dshapes_polygon_.polygon.html" class="tsd-signature-type">Polygon</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -165,116 +140,109 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="x" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> x</h3>
-					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="aabb" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> AABB</h3>
+					<div class="tsd-signature tsd-kind-icon">AABB<span class="tsd-signature-symbol">:</span> <a href="_aabb_.aabb.html" class="tsd-signature-type">AABB</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/Shapes/Vector3.ts#L10">Shapes/Vector3.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/2dShapes/Polygon.ts#L6">2dShapes/Polygon.ts:6</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>X position</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="y" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> y</h3>
-					<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="shape" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> shape</h3>
+					<div class="tsd-signature tsd-kind-icon">shape<span class="tsd-signature-symbol">:</span> <a href="_vector2_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/Shapes/Vector3.ts#L10">Shapes/Vector3.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/2dShapes/Polygon.ts#L8">2dShapes/Polygon.ts:8</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Elevation</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="z" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> z</h3>
-					<div class="tsd-signature tsd-kind-icon">z<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/Shapes/Vector3.ts#L10">Shapes/Vector3.ts:10</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Z position</p>
-						</div>
-					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Accessors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="x-1" class="tsd-anchor"></a>
-					<h3>X</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> X<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="containspoint" class="tsd-anchor"></a>
+					<h3>Contains<wbr>Point</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">Contains<wbr>Point<span class="tsd-signature-symbol">(</span>point<span class="tsd-signature-symbol">: </span><a href="_vector2_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/Shapes/Vector3.ts#L15">Shapes/Vector3.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/2dShapes/Polygon.ts#L39">2dShapes/Polygon.ts:39</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>X Position</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>point: <a href="_vector2_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="y-1" class="tsd-anchor"></a>
-					<h3>Y</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> Y<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getaabb" class="tsd-anchor"></a>
+					<h3>GetAABB</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">GetAABB<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_aabb_.aabb.html" class="tsd-signature-type">AABB</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_iaabbshape_.iaabbshape.html">IAABBShape</a>.<a href="../interfaces/_iaabbshape_.iaabbshape.html#getaabb">GetAABB</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/Shapes/Vector3.ts#L21">Shapes/Vector3.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/2dShapes/Polygon.ts#L35">2dShapes/Polygon.ts:35</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Elevation</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_aabb_.aabb.html" class="tsd-signature-type">AABB</a></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="z-1" class="tsd-anchor"></a>
-					<h3>Z</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> Z<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="checkforhit" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> check<wbr>For<wbr>Hit</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">check<wbr>For<wbr>Hit<span class="tsd-signature-symbol">(</span>point1<span class="tsd-signature-symbol">: </span><a href="_vector2_.vector2.html" class="tsd-signature-type">Vector2</a>, point2<span class="tsd-signature-symbol">: </span><a href="_vector2_.vector2.html" class="tsd-signature-type">Vector2</a>, rayStart<span class="tsd-signature-symbol">: </span><a href="_vector2_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/Shapes/Vector3.ts#L27">Shapes/Vector3.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/2dShapes/Polygon.ts#L58">2dShapes/Polygon.ts:58</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Z Position</p>
+									<p>Check if the ray hits the bound</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>point1: <a href="_vector2_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The begining of the bound</p>
+									</div>
+								</li>
+								<li>
+									<h5>point2: <a href="_vector2_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The end of the bound</p>
+									</div>
+								</li>
+								<li>
+									<h5>rayStart: <a href="_vector2_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The point to check collisions with</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -287,6 +255,24 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="../modules/_2dshapes_circle_.html">"2d<wbr>Shapes/<wbr>Circle"</a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/_2dshapes_polygon_.html">"2d<wbr>Shapes/<wbr>Polygon"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_2dshapes_index_.html">"2d<wbr>Shapes/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_3dshapes_cylinder_.html">"3d<wbr>Shapes/<wbr>Cylinder"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_3dshapes_polygonalprism_.html">"3d<wbr>Shapes/<wbr>Polygonal<wbr>Prism"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_3dshapes_index_.html">"3d<wbr>Shapes/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_aabb_.html">"AABB"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -296,22 +282,13 @@
 						<a href="../modules/_aabbtree_.html">"AABBTree"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_shapes_cuboid_.html">"<wbr>Shapes/<wbr>Cuboid"</a>
+						<a href="../modules/_iaabbshape_.html">"IAABBShape"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_shapes_cylinder_.html">"<wbr>Shapes/<wbr>Cylinder"</a>
+						<a href="../modules/_vector2_.html">"<wbr>Vector2"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_shapes_iaabbshape_.html">"<wbr>Shapes/IAABBShape"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_shapes_polygonalprism_.html">"<wbr>Shapes/<wbr>Polygonal<wbr>Prism"</a>
-					</li>
-					<li class="current tsd-kind-external-module">
-						<a href="../modules/_shapes_vector3_.html">"<wbr>Shapes/<wbr>Vector3"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_shapes_index_.html">"<wbr>Shapes/index"</a>
+						<a href="../modules/_vector3_.html">"<wbr>Vector3"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_index_.html">"index"</a>
@@ -323,28 +300,25 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_shapes_vector3_.vector3.html" class="tsd-kind-icon">Vector3</a>
+						<a href="_2dshapes_polygon_.polygon.html" class="tsd-kind-icon">Polygon</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="_shapes_vector3_.vector3.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="_2dshapes_polygon_.polygon.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_shapes_vector3_.vector3.html#x" class="tsd-kind-icon">x</a>
+								<a href="_2dshapes_polygon_.polygon.html#aabb" class="tsd-kind-icon">AABB</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_shapes_vector3_.vector3.html#y" class="tsd-kind-icon">y</a>
+								<a href="_2dshapes_polygon_.polygon.html#shape" class="tsd-kind-icon">shape</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_shapes_vector3_.vector3.html#z" class="tsd-kind-icon">z</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_2dshapes_polygon_.polygon.html#containspoint" class="tsd-kind-icon">Contains<wbr>Point</a>
 							</li>
-							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="_shapes_vector3_.vector3.html#x-1" class="tsd-kind-icon">X</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_2dshapes_polygon_.polygon.html#getaabb" class="tsd-kind-icon">GetAABB</a>
 							</li>
-							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="_shapes_vector3_.vector3.html#y-1" class="tsd-kind-icon">Y</a>
-							</li>
-							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="_shapes_vector3_.vector3.html#z-1" class="tsd-kind-icon">Z</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_2dshapes_polygon_.polygon.html#checkforhit" class="tsd-kind-icon">check<wbr>For<wbr>Hit</a>
 							</li>
 						</ul>
 					</li>

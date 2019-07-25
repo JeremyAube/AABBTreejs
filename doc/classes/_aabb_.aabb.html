@@ -90,12 +90,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_aabb_.aabb.html#maxx" class="tsd-kind-icon">MaxX</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_aabb_.aabb.html#maxy" class="tsd-kind-icon">MaxY</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_aabb_.aabb.html#maxz" class="tsd-kind-icon">MaxZ</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_aabb_.aabb.html#minx" class="tsd-kind-icon">MinX</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_aabb_.aabb.html#miny" class="tsd-kind-icon">MinY</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_aabb_.aabb.html#minz" class="tsd-kind-icon">MinZ</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_aabb_.aabb.html#highpoint" class="tsd-kind-icon">high<wbr>Point</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_aabb_.aabb.html#lowpoint" class="tsd-kind-icon">low<wbr>Point</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -103,8 +99,9 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_aabb_.aabb.html#depth" class="tsd-kind-icon">Depth</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_aabb_.aabb.html#height" class="tsd-kind-icon">Height</a></li>
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_aabb_.aabb.html#volume" class="tsd-kind-icon">Volume</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_aabb_.aabb.html#space" class="tsd-kind-icon">Space</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_aabb_.aabb.html#width" class="tsd-kind-icon">Width</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_aabb_.aabb.html#is3d" class="tsd-kind-icon">is3D</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -124,13 +121,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new AABB<span class="tsd-signature-symbol">(</span>minX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, minY<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, minZ<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, maxX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, maxY<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, maxZ<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_aabb_.aabb.html" class="tsd-signature-type">AABB</a></li>
+						<li class="tsd-signature tsd-kind-icon">new AABB<span class="tsd-signature-symbol">(</span>minX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, minY<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, minZ<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, maxX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, maxY<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, maxZ<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_aabb_.aabb.html" class="tsd-signature-type">AABB</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/AABB.ts#L10">AABB.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/AABB.ts#L6">AABB.ts:6</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -159,7 +156,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>minZ: <span class="tsd-signature-type">number</span></h5>
+									<h5>minZ: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
 											<p>the minimum value in the Z axis</p>
@@ -183,7 +180,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>maxZ: <span class="tsd-signature-type">number</span></h5>
+									<h5>maxZ: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
 											<p>the maximum value in the Z axis</p>
@@ -199,62 +196,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="maxx" class="tsd-anchor"></a>
-					<h3>MaxX</h3>
-					<div class="tsd-signature tsd-kind-icon">MaxX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="highpoint" class="tsd-anchor"></a>
+					<h3>high<wbr>Point</h3>
+					<div class="tsd-signature tsd-kind-icon">high<wbr>Point<span class="tsd-signature-symbol">:</span> <a href="_vector3_.vector3.html" class="tsd-signature-type">Vector3</a><span class="tsd-signature-symbol"> | </span><a href="_vector2_.vector2.html" class="tsd-signature-type">Vector2</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/AABB.ts#L8">AABB.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/AABB.ts#L6">AABB.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="maxy" class="tsd-anchor"></a>
-					<h3>MaxY</h3>
-					<div class="tsd-signature tsd-kind-icon">MaxY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="lowpoint" class="tsd-anchor"></a>
+					<h3>low<wbr>Point</h3>
+					<div class="tsd-signature tsd-kind-icon">low<wbr>Point<span class="tsd-signature-symbol">:</span> <a href="_vector3_.vector3.html" class="tsd-signature-type">Vector3</a><span class="tsd-signature-symbol"> | </span><a href="_vector2_.vector2.html" class="tsd-signature-type">Vector2</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/AABB.ts#L9">AABB.ts:9</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="maxz" class="tsd-anchor"></a>
-					<h3>MaxZ</h3>
-					<div class="tsd-signature tsd-kind-icon">MaxZ<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/AABB.ts#L10">AABB.ts:10</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="minx" class="tsd-anchor"></a>
-					<h3>MinX</h3>
-					<div class="tsd-signature tsd-kind-icon">MinX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/AABB.ts#L4">AABB.ts:4</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="miny" class="tsd-anchor"></a>
-					<h3>MinY</h3>
-					<div class="tsd-signature tsd-kind-icon">MinY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/AABB.ts#L5">AABB.ts:5</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="minz" class="tsd-anchor"></a>
-					<h3>MinZ</h3>
-					<div class="tsd-signature tsd-kind-icon">MinZ<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/AABB.ts#L6">AABB.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/AABB.ts#L5">AABB.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -271,7 +228,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/AABB.ts#L94">AABB.ts:94</a></li>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/AABB.ts#L117">AABB.ts:117</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -288,7 +245,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/AABB.ts#L91">AABB.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/AABB.ts#L114">AABB.ts:114</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -296,16 +253,16 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="volume" class="tsd-anchor"></a>
-					<h3>Volume</h3>
+					<a name="space" class="tsd-anchor"></a>
+					<h3>Space</h3>
 					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> Volume<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> Space<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/AABB.ts#L97">AABB.ts:97</a></li>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/AABB.ts#L124">AABB.ts:124</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -322,10 +279,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/AABB.ts#L88">AABB.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/AABB.ts#L111">AABB.ts:111</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="is3d" class="tsd-anchor"></a>
+					<h3>is3D</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> is3D<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/AABB.ts#L108">AABB.ts:108</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -336,13 +310,13 @@
 					<a name="containspoint" class="tsd-anchor"></a>
 					<h3>Contains<wbr>Point</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Contains<wbr>Point<span class="tsd-signature-symbol">(</span>point<span class="tsd-signature-symbol">: </span><a href="_shapes_vector3_.vector3.html" class="tsd-signature-type">Vector3</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">Contains<wbr>Point<span class="tsd-signature-symbol">(</span>point<span class="tsd-signature-symbol">: </span><a href="_vector3_.vector3.html" class="tsd-signature-type">Vector3</a><span class="tsd-signature-symbol"> | </span><a href="_vector2_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/AABB.ts#L77">AABB.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/AABB.ts#L87">AABB.ts:87</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -353,7 +327,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>point: <a href="_shapes_vector3_.vector3.html" class="tsd-signature-type">Vector3</a></h5>
+									<h5>point: <a href="_vector3_.vector3.html" class="tsd-signature-type">Vector3</a><span class="tsd-signature-symbol"> | </span><a href="_vector2_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The point to check</p>
 									</div>
@@ -374,7 +348,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/AABB.ts#L40">AABB.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/AABB.ts#L44">AABB.ts:44</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -406,7 +380,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/9105212/src/AABB.ts#L59">AABB.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/AABB.ts#L61">AABB.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -436,6 +410,24 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_2dshapes_circle_.html">"2d<wbr>Shapes/<wbr>Circle"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_2dshapes_polygon_.html">"2d<wbr>Shapes/<wbr>Polygon"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_2dshapes_index_.html">"2d<wbr>Shapes/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_3dshapes_cylinder_.html">"3d<wbr>Shapes/<wbr>Cylinder"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_3dshapes_polygonalprism_.html">"3d<wbr>Shapes/<wbr>Polygonal<wbr>Prism"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_3dshapes_index_.html">"3d<wbr>Shapes/index"</a>
+					</li>
 					<li class="current tsd-kind-external-module">
 						<a href="../modules/_aabb_.html">"AABB"</a>
 					</li>
@@ -446,22 +438,13 @@
 						<a href="../modules/_aabbtree_.html">"AABBTree"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_shapes_cuboid_.html">"<wbr>Shapes/<wbr>Cuboid"</a>
+						<a href="../modules/_iaabbshape_.html">"IAABBShape"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_shapes_cylinder_.html">"<wbr>Shapes/<wbr>Cylinder"</a>
+						<a href="../modules/_vector2_.html">"<wbr>Vector2"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="../modules/_shapes_iaabbshape_.html">"<wbr>Shapes/IAABBShape"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_shapes_polygonalprism_.html">"<wbr>Shapes/<wbr>Polygonal<wbr>Prism"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_shapes_vector3_.html">"<wbr>Shapes/<wbr>Vector3"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_shapes_index_.html">"<wbr>Shapes/index"</a>
+						<a href="../modules/_vector3_.html">"<wbr>Vector3"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_index_.html">"index"</a>
@@ -479,22 +462,10 @@
 								<a href="_aabb_.aabb.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_aabb_.aabb.html#maxx" class="tsd-kind-icon">MaxX</a>
+								<a href="_aabb_.aabb.html#highpoint" class="tsd-kind-icon">high<wbr>Point</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_aabb_.aabb.html#maxy" class="tsd-kind-icon">MaxY</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_aabb_.aabb.html#maxz" class="tsd-kind-icon">MaxZ</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_aabb_.aabb.html#minx" class="tsd-kind-icon">MinX</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_aabb_.aabb.html#miny" class="tsd-kind-icon">MinY</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_aabb_.aabb.html#minz" class="tsd-kind-icon">MinZ</a>
+								<a href="_aabb_.aabb.html#lowpoint" class="tsd-kind-icon">low<wbr>Point</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="_aabb_.aabb.html#depth" class="tsd-kind-icon">Depth</a>
@@ -503,10 +474,13 @@
 								<a href="_aabb_.aabb.html#height" class="tsd-kind-icon">Height</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="_aabb_.aabb.html#volume" class="tsd-kind-icon">Volume</a>
+								<a href="_aabb_.aabb.html#space" class="tsd-kind-icon">Space</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="_aabb_.aabb.html#width" class="tsd-kind-icon">Width</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="_aabb_.aabb.html#is3d" class="tsd-kind-icon">is3D</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_aabb_.aabb.html#containspoint" class="tsd-kind-icon">Contains<wbr>Point</a>
