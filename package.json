@@ -1,6 +1,6 @@
 {
   "name": "aabb-tree",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "Basic implementation of the AABB-Tree (Axis Aligned Box Bounding Tree)",
   "main": "index.js",
   "types": "index.d.ts",
