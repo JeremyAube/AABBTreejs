@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Circle | aabb-tree</title>
+	<title>AABBNode | aabb-tree</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,31 +56,37 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_2dshapes_circle_.html">&quot;2dShapes/Circle&quot;</a>
+					<a href="../modules/_aabbnode_.html">&quot;AABBNode&quot;</a>
 				</li>
 				<li>
-					<a href="_2dshapes_circle_.circle.html">Circle</a>
+					<a href="_aabbnode_.aabbnode.html">AABBNode</a>
 				</li>
 			</ul>
-			<h1>Class Circle</h1>
+			<h1>Class AABBNode</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Axis Aligned Bouding Box Node</p>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>remark</dt>
+						<dd><p>The bounding box on this nodes either fully contains the shape or the two child nodes.</p>
+						</dd>
+					</dl>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Circle</span>
+						<span class="target">AABBNode</span>
 					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel">
-				<h3>Implements</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="../interfaces/_iaabbshape_.iaabbshape.html" class="tsd-signature-type">IAABBShape</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -90,22 +96,23 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_2dshapes_circle_.circle.html#constructor" class="tsd-kind-icon">constructor</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
-							<h3>Properties</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_2dshapes_circle_.circle.html#aabb" class="tsd-kind-icon">AABB</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_2dshapes_circle_.circle.html#center" class="tsd-kind-icon">center</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_2dshapes_circle_.circle.html#radius" class="tsd-kind-icon">radius</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_aabbnode_.aabbnode.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Methods</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_2dshapes_circle_.circle.html#containspoint" class="tsd-kind-icon">Contains<wbr>Point</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_2dshapes_circle_.circle.html#getaabb" class="tsd-kind-icon">GetAABB</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_aabbnode_.aabbnode.html#aabb" class="tsd-kind-icon">Aabb</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_aabbnode_.aabbnode.html#leftnode" class="tsd-kind-icon">Left<wbr>Node</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_aabbnode_.aabbnode.html#parentnode" class="tsd-kind-icon">Parent<wbr>Node</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_aabbnode_.aabbnode.html#rightnode" class="tsd-kind-icon">Right<wbr>Node</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_aabbnode_.aabbnode.html#shape" class="tsd-kind-icon">Shape</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_aabbnode_.aabbnode.html#isleaf" class="tsd-kind-icon">Is<wbr>Leaf</a></li>
 							</ul>
 						</section>
 					</div>
@@ -117,102 +124,137 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Circle<span class="tsd-signature-symbol">(</span>center<span class="tsd-signature-symbol">: </span><a href="_vector2_.vector2.html" class="tsd-signature-type">Vector2</a>, radius<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_2dshapes_circle_.circle.html" class="tsd-signature-type">Circle</a></li>
+						<li class="tsd-signature tsd-kind-icon">new AABBNode<span class="tsd-signature-symbol">(</span>Aabb<span class="tsd-signature-symbol">: </span><a href="_aabb_.aabb.html" class="tsd-signature-type">AABB</a>, shape<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_iaabbshape_.iaabbshape.html" class="tsd-signature-type">IAABBShape</a>, parentNode<span class="tsd-signature-symbol">?: </span><a href="_aabbnode_.aabbnode.html" class="tsd-signature-type">AABBNode</a>, leftNode<span class="tsd-signature-symbol">?: </span><a href="_aabbnode_.aabbnode.html" class="tsd-signature-type">AABBNode</a>, rightNode<span class="tsd-signature-symbol">?: </span><a href="_aabbnode_.aabbnode.html" class="tsd-signature-type">AABBNode</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_aabbnode_.aabbnode.html" class="tsd-signature-type">AABBNode</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/2dShapes/Circle.ts#L6">2dShapes/Circle.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/cc10a5f/src/AABBNode.ts#L16">AABBNode.ts:16</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>center: <a href="_vector2_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>Aabb: <a href="_aabb_.aabb.html" class="tsd-signature-type">AABB</a></h5>
 								</li>
 								<li>
-									<h5>radius: <span class="tsd-signature-type">number</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> shape: <a href="../interfaces/_iaabbshape_.iaabbshape.html" class="tsd-signature-type">IAABBShape</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>A reference to a shape implementation of IAABBShape</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> parentNode: <a href="_aabbnode_.aabbnode.html" class="tsd-signature-type">AABBNode</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The node parenting this node</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> leftNode: <a href="_aabbnode_.aabbnode.html" class="tsd-signature-type">AABBNode</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The first child node</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> rightNode: <a href="_aabbnode_.aabbnode.html" class="tsd-signature-type">AABBNode</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The second child node</p>
+										</div>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_2dshapes_circle_.circle.html" class="tsd-signature-type">Circle</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_aabbnode_.aabbnode.html" class="tsd-signature-type">AABBNode</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="aabb" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> AABB</h3>
-					<div class="tsd-signature tsd-kind-icon">AABB<span class="tsd-signature-symbol">:</span> <a href="_aabb_.aabb.html" class="tsd-signature-type">AABB</a></div>
+					<h3>Aabb</h3>
+					<div class="tsd-signature tsd-kind-icon">Aabb<span class="tsd-signature-symbol">:</span> <a href="_aabb_.aabb.html" class="tsd-signature-type">AABB</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/2dShapes/Circle.ts#L6">2dShapes/Circle.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/cc10a5f/src/AABBNode.ts#L11">AABBNode.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="center" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> center</h3>
-					<div class="tsd-signature tsd-kind-icon">center<span class="tsd-signature-symbol">:</span> <a href="_vector2_.vector2.html" class="tsd-signature-type">Vector2</a></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="leftnode" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Left<wbr>Node</h3>
+					<div class="tsd-signature tsd-kind-icon">Left<wbr>Node<span class="tsd-signature-symbol">:</span> <a href="_aabbnode_.aabbnode.html" class="tsd-signature-type">AABBNode</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/2dShapes/Circle.ts#L9">2dShapes/Circle.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/cc10a5f/src/AABBNode.ts#L15">AABBNode.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="radius" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> radius</h3>
-					<div class="tsd-signature tsd-kind-icon">radius<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="parentnode" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Parent<wbr>Node</h3>
+					<div class="tsd-signature tsd-kind-icon">Parent<wbr>Node<span class="tsd-signature-symbol">:</span> <a href="_aabbnode_.aabbnode.html" class="tsd-signature-type">AABBNode</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/2dShapes/Circle.ts#L10">2dShapes/Circle.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/cc10a5f/src/AABBNode.ts#L14">AABBNode.ts:14</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="rightnode" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Right<wbr>Node</h3>
+					<div class="tsd-signature tsd-kind-icon">Right<wbr>Node<span class="tsd-signature-symbol">:</span> <a href="_aabbnode_.aabbnode.html" class="tsd-signature-type">AABBNode</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/cc10a5f/src/AABBNode.ts#L16">AABBNode.ts:16</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="shape" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Shape</h3>
+					<div class="tsd-signature tsd-kind-icon">Shape<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_iaabbshape_.iaabbshape.html" class="tsd-signature-type">IAABBShape</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/cc10a5f/src/AABBNode.ts#L12">AABBNode.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="containspoint" class="tsd-anchor"></a>
-					<h3>Contains<wbr>Point</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Contains<wbr>Point<span class="tsd-signature-symbol">(</span>point<span class="tsd-signature-symbol">: </span><a href="_vector2_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="isleaf" class="tsd-anchor"></a>
+					<h3>Is<wbr>Leaf</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> IsLeaf<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/2dShapes/Circle.ts#L24">2dShapes/Circle.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/cc10a5f/src/AABBNode.ts#L39">AABBNode.ts:39</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>point: <a href="_vector2_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
-								</li>
-							</ul>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>remark</dt>
+									<dd><p>The node is considered a leaf when is has no reference to any child nodes.
+										Only leaf nodes should contain shapes</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getaabb" class="tsd-anchor"></a>
-					<h3>GetAABB</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">GetAABB<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_aabb_.aabb.html" class="tsd-signature-type">AABB</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/_iaabbshape_.iaabbshape.html">IAABBShape</a>.<a href="../interfaces/_iaabbshape_.iaabbshape.html#getaabb">GetAABB</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/2dShapes/Circle.ts#L20">2dShapes/Circle.ts:20</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="_aabb_.aabb.html" class="tsd-signature-type">AABB</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -224,7 +266,7 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_2dshapes_circle_.html">"2d<wbr>Shapes/<wbr>Circle"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -245,7 +287,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_aabb_.html">"AABB"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_aabbnode_.html">"AABBNode"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -270,25 +312,28 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_2dshapes_circle_.circle.html" class="tsd-kind-icon">Circle</a>
+						<a href="_aabbnode_.aabbnode.html" class="tsd-kind-icon">AABBNode</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="_2dshapes_circle_.circle.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="_aabbnode_.aabbnode.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_2dshapes_circle_.circle.html#aabb" class="tsd-kind-icon">AABB</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_aabbnode_.aabbnode.html#aabb" class="tsd-kind-icon">Aabb</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_2dshapes_circle_.circle.html#center" class="tsd-kind-icon">center</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_aabbnode_.aabbnode.html#leftnode" class="tsd-kind-icon">Left<wbr>Node</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_2dshapes_circle_.circle.html#radius" class="tsd-kind-icon">radius</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_aabbnode_.aabbnode.html#parentnode" class="tsd-kind-icon">Parent<wbr>Node</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_2dshapes_circle_.circle.html#containspoint" class="tsd-kind-icon">Contains<wbr>Point</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_aabbnode_.aabbnode.html#rightnode" class="tsd-kind-icon">Right<wbr>Node</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_2dshapes_circle_.circle.html#getaabb" class="tsd-kind-icon">GetAABB</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_aabbnode_.aabbnode.html#shape" class="tsd-kind-icon">Shape</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="_aabbnode_.aabbnode.html#isleaf" class="tsd-kind-icon">Is<wbr>Leaf</a>
 							</li>
 						</ul>
 					</li>

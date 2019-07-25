@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IAABBShape | aabb-tree</title>
+	<title>Vector3 | aabb-tree</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,34 +56,32 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_iaabbshape_.html">&quot;IAABBShape&quot;</a>
+					<a href="../modules/_vector3_.html">&quot;Vector3&quot;</a>
 				</li>
 				<li>
-					<a href="_iaabbshape_.iaabbshape.html">IAABBShape</a>
+					<a href="_vector3_.vector3.html">Vector3</a>
 				</li>
 			</ul>
-			<h1>Interface IAABBShape</h1>
+			<h1>Class Vector3</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>A reprensentation of a point in 3D space.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IAABBShape</span>
+						<span class="target">Vector3</span>
 					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel">
-				<h3>Implemented by</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="../classes/_2dshapes_circle_.circle.html" class="tsd-signature-type">Circle</a></li>
-					<li><a href="../classes/_3dshapes_cylinder_.cylinder.html" class="tsd-signature-type">Cylinder</a></li>
-					<li><a href="../classes/_2dshapes_polygon_.polygon.html" class="tsd-signature-type">Polygon</a></li>
-					<li><a href="../classes/_3dshapes_polygonalprism_.polygonalprism.html" class="tsd-signature-type">PolygonalPrism</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -91,56 +89,85 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Methods</h3>
+							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_iaabbshape_.iaabbshape.html#containspoint" class="tsd-kind-icon">Contains<wbr>Point</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_iaabbshape_.iaabbshape.html#getaabb" class="tsd-kind-icon">GetAABB</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_vector3_.vector3.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_vector3_.vector3.html#x" class="tsd-kind-icon">X</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_vector3_.vector3.html#y" class="tsd-kind-icon">Y</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_vector3_.vector3.html#z" class="tsd-kind-icon">Z</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="containspoint" class="tsd-anchor"></a>
-					<h3>Contains<wbr>Point</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">Contains<wbr>Point<span class="tsd-signature-symbol">(</span>point<span class="tsd-signature-symbol">: </span><a href="../classes/_vector3_.vector3.html" class="tsd-signature-type">Vector3</a><span class="tsd-signature-symbol"> | </span><a href="../classes/_vector2_.vector2.html" class="tsd-signature-type">Vector2</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Vector3<span class="tsd-signature-symbol">(</span>X<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, Y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, Z<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_vector3_.vector3.html" class="tsd-signature-type">Vector3</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/IAABBShape.ts#L7">IAABBShape.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/cc10a5f/src/Vector3.ts#L4">Vector3.ts:4</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>point: <a href="../classes/_vector3_.vector3.html" class="tsd-signature-type">Vector3</a><span class="tsd-signature-symbol"> | </span><a href="../classes/_vector2_.vector2.html" class="tsd-signature-type">Vector2</a></h5>
+									<h5>X: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>Y: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>Z: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_vector3_.vector3.html" class="tsd-signature-type">Vector3</a></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="getaabb" class="tsd-anchor"></a>
-					<h3>GetAABB</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">GetAABB<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_aabb_.aabb.html" class="tsd-signature-type">AABB</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/13fb7de/src/IAABBShape.ts#L6">IAABBShape.ts:6</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="../classes/_aabb_.aabb.html" class="tsd-signature-type">AABB</a></h4>
-						</li>
-					</ul>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="x" class="tsd-anchor"></a>
+					<h3>X</h3>
+					<div class="tsd-signature tsd-kind-icon">X<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/cc10a5f/src/Vector3.ts#L6">Vector3.ts:6</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="y" class="tsd-anchor"></a>
+					<h3>Y</h3>
+					<div class="tsd-signature tsd-kind-icon">Y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/cc10a5f/src/Vector3.ts#L7">Vector3.ts:7</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="z" class="tsd-anchor"></a>
+					<h3>Z</h3>
+					<div class="tsd-signature tsd-kind-icon">Z<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/JeremyAube/AABBTreejs/blob/cc10a5f/src/Vector3.ts#L8">Vector3.ts:8</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -177,13 +204,13 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_aabbtree_.html">"AABBTree"</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_iaabbshape_.html">"IAABBShape"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_vector2_.html">"<wbr>Vector2"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_vector3_.html">"<wbr>Vector3"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -195,14 +222,20 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_iaabbshape_.iaabbshape.html" class="tsd-kind-icon">IAABBShape</a>
+					<li class="current tsd-kind-class tsd-parent-kind-external-module">
+						<a href="_vector3_.vector3.html" class="tsd-kind-icon">Vector3</a>
 						<ul>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_iaabbshape_.iaabbshape.html#containspoint" class="tsd-kind-icon">Contains<wbr>Point</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="_vector3_.vector3.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_iaabbshape_.iaabbshape.html#getaabb" class="tsd-kind-icon">GetAABB</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_vector3_.vector3.html#x" class="tsd-kind-icon">X</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_vector3_.vector3.html#y" class="tsd-kind-icon">Y</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_vector3_.vector3.html#z" class="tsd-kind-icon">Z</a>
 							</li>
 						</ul>
 					</li>

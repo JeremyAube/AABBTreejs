@@ -8,7 +8,7 @@
     "build": "tsc",
     "watch": "tsc --watch",
     "test": "jest",
-    "docs": "typedoc --out ./doc ./src",
+    "docs": "typedoc --out ./docs ./src",
     "prepublish": "npm run test && npm run build"
   },
   "repository": {
