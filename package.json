@@ -33,8 +33,6 @@
   },
   "homepage": "https://github.com/JeremyAube/AABBTreejs#readme",
   "devDependencies": {
-    "@types/jest": "^24.0.15",
-    "jest": "^24.8.0",
     "prettier": "^1.16.4",
     "ts-jest": "^24.0.0",
     "tslint": "^5.13.1",
@@ -46,5 +44,8 @@
     "**/*.js",
     "**/*.d.ts"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "@types/jest": "^24.0.15",
+    "jest": "^24.8.0"
+  }
 }
