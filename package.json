@@ -43,10 +43,8 @@
     "typescript": "^3.3.3333"
   },
   "files": [
-    "*.js",
-    "*.d.ts",
-    "2dShapes/",
-    "3dShapes"
+    "**/*.js",
+    "**/*.d.ts"
   ],
   "dependencies": {}
 }
