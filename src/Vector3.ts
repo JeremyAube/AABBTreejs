@@ -6,5 +6,6 @@ export default class Vector3 {
     public X: number,
     public Y: number,
     public Z: number
-  ) {}
+  ) {
+  }
 }

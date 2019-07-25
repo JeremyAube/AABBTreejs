@@ -1,9 +1,9 @@
-import Vector2 from 'src/Vector2';
-import AABB2D from 'src/AABB2d';
-import IAABBShape from 'src/IAABBShape';
+import Vector2 from '../Vector2';
+import AABB from '../AABB';
+import IAABBShape from '../IAABBShape';
 
 export default class Polygon implements IAABBShape {
-  private AABB: AABB2D;
+  private AABB: AABB;
 
   constructor(private shape: Vector2[]) {
     if (shape.length < 2) {
@@ -29,10 +29,10 @@ export default class Polygon implements IAABBShape {
       }
     });
 
-    this.AABB = new AABB2D(minX, minY, maxX, maxY);
+    this.AABB = new AABB(minX, minY, null, maxX, maxY, null);
   }
 
-  public GetAABB(): AABB2D {
+  public GetAABB(): AABB {
     return this.AABB;
   }
 

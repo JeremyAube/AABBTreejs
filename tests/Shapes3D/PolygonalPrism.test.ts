@@ -1,5 +1,5 @@
-import PolygonalPrism from '../../src/Shapes/PolygonalPrism';
-import Vector3 from '../../src/Shapes/Vector3';
+import PolygonalPrism from '../../src/3dShapes/PolygonalPrism';
+import Vector3 from '../../src/Vector3';
 
 describe('Polygonal Prism Shape', () => {
   const points = [

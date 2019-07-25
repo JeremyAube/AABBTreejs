@@ -8,10 +8,8 @@ import IAABBShape from './IAABBShape';
 export default class AABBTree {
   private rootNode?: AABBNode;
   private shapeToNodeMap: Map<IAABBShape, AABBNode>;
-  private is3D: boolean;
 
-  constructor(dimensions: '2d' | '3d') {
-    this.is3D = dimensions === '3d';
+  constructor() {
     this.shapeToNodeMap = new Map<IAABBShape, AABBNode>();
   }
 
@@ -41,25 +39,25 @@ export default class AABBTree {
       const newLeftAabb = leftNode.Aabb.Merge(shapeAABB);
       const newRightAabb = rightNode.Aabb.Merge(shapeAABB);
 
-      const volumeDifference = newNodeAabb.Volume - currentNode.Aabb.Space;
+      const volumeDifference = newNodeAabb.Space - currentNode.Aabb.Space;
       if (volumeDifference > 0) {
         let leftCost;
         let rightCost;
 
         if (leftNode.IsLeaf) {
-          leftCost = newLeftAabb.Volume + volumeDifference;
+          leftCost = newLeftAabb.Space + volumeDifference;
         } else {
-          leftCost = newLeftAabb.Volume - leftNode.Aabb.Space + volumeDifference;
+          leftCost = newLeftAabb.Space - leftNode.Aabb.Space + volumeDifference;
         }
 
         if (rightNode.IsLeaf) {
-          rightCost = newRightAabb.Volume + volumeDifference;
+          rightCost = newRightAabb.Space + volumeDifference;
         } else {
-          rightCost = newRightAabb.Volume - rightNode.Aabb.Space + volumeDifference;
+          rightCost = newRightAabb.Space - rightNode.Aabb.Space + volumeDifference;
         }
 
         // For some reason 1.3 is a good bias to introduce. Might need to understand that some day...
-        if (newNodeAabb.Volume < leftCost * 1.3 && newNodeAabb.Volume < rightCost * 1.3) {
+        if (newNodeAabb.Space < leftCost * 1.3 && newNodeAabb.Space < rightCost * 1.3) {
           break;
         }
 
@@ -76,8 +74,8 @@ export default class AABBTree {
       // Set the new AABB right away so we don't have to traverse the tree backwards after insert
       currentNode.Aabb = newNodeAabb;
 
-      const leftVolumeIncrease = newLeftAabb.Volume - leftNode.Aabb.Space;
-      const rightVolumeIncrease = newRightAabb.Volume - rightNode.Aabb.Space;
+      const leftVolumeIncrease = newLeftAabb.Space - leftNode.Aabb.Space;
+      const rightVolumeIncrease = newRightAabb.Space - rightNode.Aabb.Space;
       if (leftVolumeIncrease > rightVolumeIncrease) {
         currentNode = rightNode;
         newAabb = newRightAabb;
