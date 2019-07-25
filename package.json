@@ -45,7 +45,8 @@
   "files": [
     "*.js",
     "*.d.ts",
-    "Shapes/"
+    "2dShapes/",
+    "3dShapes"
   ],
   "dependencies": {}
 }
