@@ -1,6 +1,7 @@
 import AABBNode from './AABBNode';
 import Vector3 from './Vector3';
 import IAABBShape from './IAABBShape';
+import { Vector2 } from 'src';
 
 /**
  * Axis Aligned Bounding Box Tree
@@ -134,7 +135,7 @@ export default class AABBTree {
    *
    * @returns An array containing all the shape overlapping with the point
    */
-  public GetShapesOverlappingWith(point: Vector3): IAABBShape[] {
+  public GetShapesOverlappingWith(point: Vector3 | Vector2): IAABBShape[] {
     if (this.rootNode === undefined) {
       return [];
     }
@@ -147,14 +148,20 @@ export default class AABBTree {
       const rightNode = (nodesToCheck[index] as AABBNode).RightNode as AABBNode;
 
       if (leftNode.Aabb.ContainsPoint(point)) {
-        leftNode.IsLeaf
-          ? this.checkDeepCollision(leftNode.Shape as IAABBShape, point, collidingNodes)
-          : nodesToCheck.push(leftNode);
+        if (!leftNode.IsLeaf) {
+          nodesToCheck.push(leftNode);
+        }
+        else if ((<IAABBShape>leftNode.Shape).ContainsPoint(point)) {
+          collidingNodes.push(<IAABBShape>leftNode.Shape);
+        }
       }
       if (rightNode.Aabb.ContainsPoint(point)) {
-        rightNode.IsLeaf
-          ? this.checkDeepCollision(rightNode.Shape as IAABBShape, point, collidingNodes)
-          : nodesToCheck.push(rightNode);
+        if (!rightNode.IsLeaf) {
+          nodesToCheck.push(rightNode);
+        }
+        else if ((<IAABBShape>rightNode.Shape).ContainsPoint(point)) {
+          collidingNodes.push(<IAABBShape>rightNode.Shape);
+        }
       }
 
       index++;
@@ -179,19 +186,6 @@ export default class AABBTree {
     }
 
     return nodes;
-  }
-
-  /**
-   * Check true collision (and AABB collision) with the shape and the point
-   *
-   * @param shape - The shape to test collision with
-   * @param point - The point to test collision with
-   * @param array - Reference to the array containing all colliding shapes
-   */
-  private checkDeepCollision(shape: IAABBShape, point: Vector3, array: IAABBShape[]) {
-    if (shape.ContainsPoint(point)) {
-      array.push(shape);
-    }
   }
 
   /**
