@@ -139,6 +139,13 @@ export default class AABBTree {
       const leftNode = (nodesToCheck[index] as AABBNode).LeftNode as AABBNode;
       const rightNode = (nodesToCheck[index] as AABBNode).RightNode as AABBNode;
 
+      // Eventualy move this out of the loop so we dont have to check on every loop
+      if (nodesToCheck[index] === this.rootNode && this.rootNode.Shape) {
+        if ((<IAABBShape>this.rootNode.Shape).ContainsPoint(point)) {
+          collidingNodes.push(this.rootNode.Shape);
+        }
+      }
+
       if (leftNode) {
         if (leftNode.Aabb.ContainsPoint(point)) {
           if (!leftNode.IsLeaf) {
