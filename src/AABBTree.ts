@@ -16,12 +16,11 @@ export default class AABBTree {
 
   /**
    * Adds a new shape to the tree.
-   *
-   * @param shape - The shape to add to the tree (Must be an implementation of IAABBShape interface)
+   * @param shape The shape to add to the tree (Must be an implementation of IAABBShape interface)
    */
   public AddShape(shape: IAABBShape): void {
     const shapeAABB = shape.GetAABB();
-    
+
     // If there is no item in the tree we create the root node
     if (this.rootNode === undefined) {
       this.rootNode = new AABBNode(shapeAABB, shape, undefined, undefined, undefined);
@@ -109,10 +108,7 @@ export default class AABBTree {
 
   /**
    * Removes the shape and balances the tree
-   *
-   * @remarks
-   * The method will gracefully exit if the shape doesn't exist in the tree
-   *
+   * @remarks The method will gracefully exit if the shape doesn't exist in the tree
    * @param shape - The shape to remove from the tree
    */
   public RemoveShape(shape: IAABBShape): void {
@@ -127,12 +123,8 @@ export default class AABBTree {
 
   /**
    * Finds all the shape overlapping with the point
-   *
-   * @remarks
-   * if the tree is empty this function will always return an empty array
-   *
+   * @remarks if the tree is empty this function will always return an empty array
    * @param shape - The shape to check overlaps against
-   *
    * @returns An array containing all the shape overlapping with the point
    */
   public GetShapesOverlappingWith(point: Vector3 | Vector2): IAABBShape[] {
@@ -147,20 +139,22 @@ export default class AABBTree {
       const leftNode = (nodesToCheck[index] as AABBNode).LeftNode as AABBNode;
       const rightNode = (nodesToCheck[index] as AABBNode).RightNode as AABBNode;
 
-      if (leftNode.Aabb.ContainsPoint(point)) {
-        if (!leftNode.IsLeaf) {
-          nodesToCheck.push(leftNode);
-        }
-        else if ((<IAABBShape>leftNode.Shape).ContainsPoint(point)) {
-          collidingNodes.push(<IAABBShape>leftNode.Shape);
+      if (leftNode) {
+        if (leftNode.Aabb.ContainsPoint(point)) {
+          if (!leftNode.IsLeaf) {
+            nodesToCheck.push(leftNode);
+          } else if ((<IAABBShape>leftNode.Shape).ContainsPoint(point)) {
+            collidingNodes.push(<IAABBShape>leftNode.Shape);
+          }
         }
       }
-      if (rightNode.Aabb.ContainsPoint(point)) {
-        if (!rightNode.IsLeaf) {
-          nodesToCheck.push(rightNode);
-        }
-        else if ((<IAABBShape>rightNode.Shape).ContainsPoint(point)) {
-          collidingNodes.push(<IAABBShape>rightNode.Shape);
+      if (rightNode) {
+        if (rightNode.Aabb.ContainsPoint(point)) {
+          if (!rightNode.IsLeaf) {
+            nodesToCheck.push(rightNode);
+          } else if ((<IAABBShape>rightNode.Shape).ContainsPoint(point)) {
+            collidingNodes.push(<IAABBShape>rightNode.Shape);
+          }
         }
       }
 
