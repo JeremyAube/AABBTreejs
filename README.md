@@ -1,8 +1,6 @@
 # AABB Tree
 Simple implementation of an AABB Tree (Axis Aligned Bounding Box Tree) to optimize collision detection
 
-The project now supports 2d and 3d shapes nativly. Mixing both within the same tree is not requemended.
-
 ## Documentations
 The TypeDoc generated documentation can be found at the following [here](https://jeremyaube.github.io/AABBTreejs/):
 
