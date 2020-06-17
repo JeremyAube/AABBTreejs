@@ -2,7 +2,7 @@
 Simple implementation of an AABB Tree (Axis Aligned Bounding Box Tree) to optimize collision detection
 
 ## Documentations
-The TypeDoc generated documentation can be found at the following [here](https://jeremyaube.github.io/AABBTreejs/):
+The TypeDoc generated documentation can be found at the following [here](https://jeremyaube.github.io/AABBTreejs/)
 
 ## Commands
 **Run Test**: `npm test`  
@@ -17,9 +17,4 @@ The TypeDoc generated documentation can be found at the following [here](https:/
 Feel free to fork this project and send your changes in a pull requests.
 
 ## Bugs
-If you find a bug in this library, please report it as a Github Issue.
-
-# Author
-Jérémy Aubé  
-jeremyaube24@gmail.com  
-[Github](http://www.github.com/jeremyaube)
+If you find a bug, please report it as a Github Issue.
